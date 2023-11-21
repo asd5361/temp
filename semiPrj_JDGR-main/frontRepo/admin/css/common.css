@@ -315,6 +315,7 @@
 }
 .form_box textarea {
     resize: none;
+    min-height: 300px;
 }
 .form_box > .datepicker {
     display: none;
