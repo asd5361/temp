@@ -56,7 +56,7 @@
 
             <!-- 제목 -->
             <div class="tit_box">
-                <h2>공지사항 상세 조회</h2>
+                <h2>고객센터 상세 조회</h2>
             </div>
 
             <!-- 가로 테이블 -->
@@ -66,7 +66,7 @@
             
                     <div class="tbl_box">
                         <table>
-                            <caption>공지사항 상세 테이블</caption>
+                            <caption>고객센터 상세 테이블</caption>
                             <colgroup>
                                 <col width="15%"/>
                                 <col width="35%"/>
@@ -75,26 +75,35 @@
                             </colgroup>
                             <tbody>
                                 <tr>
-                                    <th scope="row"><label for="">글번호</label></th>
-                                    <td>001</td>
-                                    <th scope="row"><label for="">조회수</label></th>
-                                    <td>1001</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><label for="">작성일자</label></th>
-                                    <td>2023.11.11 23:00</td>
-                                    <th scope="row"><label for="">수정일자</label></th>
-                                    <td>2023.11.11 23:30</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><label for="">공개여부</label></th>
-                                    <td>공개</td>
-                                    <th scope="row"><label for="">고정여부</label></th>
-                                    <td>미고정</td>
+                                    <th scope="row"><label for="">문의 번호</label></th>
+                                    <td>011</td>
+                                    <th scope="row"><label for="">문의 분류</label></th>
+                                    <td>일반 문의</td>
                                 </tr>
                                 <tr>
                                     <th scope="row"><label for="">작성자</label></th>
-                                    <td colspan="3">관리자</td>
+                                    <td>김병장</td>
+                                    <th scope="row"><label for="">담당 관리자</label></th>
+                                    <td>관리자</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="">작성 일자</label></th>
+                                    <td>2023.11.11 23:00</td>
+                                    <th scope="row"><label for="">답변 일자</label></th>
+                                    <td>2023.11.21 23:30</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="">공개 여부</label></th>
+                                    <td>
+                                        <div class="form_box">
+                                            <select class="sel_box">
+                                                <option value="">공개</option>
+                                                <option value="">비공개</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <th scope="row"><label for="">답변 수정 일자</label></th>
+                                    <td>2023.11.22 23:30</td>
                                 </tr>
                                 <tr>
                                     <th scope="row"><label for="inp_03">제목</label></th>
@@ -106,7 +115,14 @@
                                         럼내용컬럼내용컬럼내용컬럼내용컬럼내용컬럼내용
                                     </td>
                                 </tr>
-                                
+                                <tr>
+                                    <th scope="row"><label for="inp_03">답변 내용</label></th>
+                                    <td colspan="3">
+                                         <div class="form_box">
+                                            <textarea placeholder="답변 내용을 입력해주세요"></textarea>
+                                        </div>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -118,7 +134,7 @@
                         <a href="" class="btn_grayline">목록가기</a>
                     </div>
                     <div class="btn_box">
-                        <a href="" class="btn_blue">수정하기</a>
+                        <a href="" class="btn_blue">답변완료</a>
                     </div>
                 </div>
 
