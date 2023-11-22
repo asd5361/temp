@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>레이아웃</title>
+    <title>공지사항 상세</title>
 
     <!-- css -->
     <link rel="stylesheet" href="../css/allCss.css">
@@ -88,9 +88,23 @@
                                 </tr>
                                 <tr>
                                     <th scope="row"><label for="">공개여부</label></th>
-                                    <td>공개</td>
+                                    <td>
+                                        <div class="form_box">
+                                            <select class="sel_box">
+                                                <option value="">공개</option>
+                                                <option value="">비공개</option>
+                                            </select>
+                                        </div>
+                                    </td>
                                     <th scope="row"><label for="">고정여부</label></th>
-                                    <td>미고정</td>
+                                    <td>
+                                        <div class="form_box">
+                                            <select class="sel_box">
+                                                <option value="">고정</option>
+                                                <option value="">미고정</option>
+                                            </select>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row"><label for="">작성자</label></th>
@@ -98,12 +112,21 @@
                                 </tr>
                                 <tr>
                                     <th scope="row"><label for="inp_03">제목</label></th>
-                                    <td colspan="3">컬럼내용컬럼내용컬럼내용컬럼내용컬럼내용컬럼내용</td>
+                                    <td colspan="3">
+                                        <div class="form_box">
+                                            <input type="text" id="inp_03">
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row"><label for="inp_03">내용</label></th>
-                                    <td colspan="3">컬<br>럼<br>컬<br>럼<br>컬<br>럼<br>컬<br>럼<br>컬<br>럼<br>컬<br>
-                                        럼내용컬럼내용컬럼내용컬럼내용컬럼내용컬럼내용
+                                    <td colspan="3">
+                                        <div class="form_box">
+                                            <textarea >
+
+                                            </textarea>
+                                            <!-- <input type="text" id="inp_03"> -->
+                                        </div>
                                     </td>
                                 </tr>
                                 
