@@ -1,0 +1,518 @@
+@charset "utf-8";
+/* 메인 */
+.best10_box .tit {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: var(--big-size);
+    color: #333;
+}
+.best10_content {
+    position: relative;
+}
+.best10_content .swiper-container {
+    overflow: hidden;
+}
+.swiper_btn {
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 33px;
+    height: 64px;
+    margin-top: -32px;
+    background: no-repeat center;
+    z-index: 1;
+    cursor: pointer;
+}
+.ico_prev {
+    left: -83px;
+    background-image: url(../images/ico/ico_prev.svg);
+}
+.ico_next {
+    right: -83px;
+    background-image: url(../images/ico/ico_next.svg);
+}
+.best10_content ul li {
+    width: 100%;
+    height: 100%;
+}
+.best10_content ul li a {
+    display: flex;
+    overflow: hidden;
+    width: 277px;
+    height: 248px;
+}
+.best10_content ul li a > .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.best10_content ul li a > .img img {
+    min-height: 100%;
+}
+.best10_content ul li a .txt {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -140px;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
+    padding: 20px;
+    box-sizing: border-box;
+    transition: .3s;
+}
+.best10_content ul li a:hover .txt {
+    bottom: 0;
+    justify-content: space-evenly;
+}
+.best10_content ul li a .txt .info {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: .2s;
+}
+.best10_content ul li a:hover .txt .info {
+    display: flex
+}
+.best10_content ul li a .txt .info .img {
+    overflow: hidden;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}
+.best10_content ul li a .txt .info strong {
+    font-size: var(--middle-size);
+    font-weight: 400;
+    color: #fff;
+}
+.best10_content ul li a .txt .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.best10_content ul li a .txt .content strong {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: var(--default-size);
+    font-weight: 300;
+    color: #fff;
+}
+.best10_content ul li a:hover .txt .content strong {
+    display: none;
+}
+.best10_content ul li a .txt .content span {
+    overflow: hidden;
+    display: none;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: var(--small-size);
+    font-weight: 300;
+    color: #fff;
+}
+.best10_content ul li a:hover .txt .content span {
+    display: -webkit-box;
+}
+.best10_content ul li a .txt .content span:hover {
+    text-decoration: underline;
+}
+.best10_content ul li a .txt .util {
+    display: flex;
+    justify-content: space-between;
+}
+.best10_content ul li a .txt .util .date {
+    font-size: var(--small-size);
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.63);
+}
+.best10_content ul li a .txt .util .like {
+    display: flex;
+    align-items: center;
+    font-size: var(--small-size);
+    color: rgba(255, 255, 255, 0.63);
+    gap: 5px;
+}
+.best10_content ul li a .txt .util .like::before {
+    content: "";
+    display: block;
+    width: 13px;
+    height: 19px;
+    background: url(../images/ico/ico_likeFull.svg) no-repeat center 4px;
+}
+
+/* main */
+.main_layout {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+}
+
+/* left */
+.main_left {
+    width: calc(100% - 272px - 30px);
+}
+.main_left h3 {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: var(--big-size);
+    color: #333;
+}
+.post_none {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 50px 10px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: var(--middle-size);
+    color: #999;
+}
+
+/* right */
+.main_right {
+    width: 272px;
+}
+.user_content {
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+}
+/* 로그인전 */
+.user_content .before_login {
+    display: flex;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+}
+.user_content .before_login span {
+    font-size: var(--small-size);
+    color: #666;
+}
+.user_content .before_login .login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 30px;
+    background-color: var(--main-color);
+    font-size: var(--default-size);
+    font-weight: 500;
+    color: #fff;
+}
+.user_content .before_login .login::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 23px;
+    background: url(../images/ico/logo_w.svg) no-repeat center;
+    margin-right: 5px;
+}
+.user_content .before_login .join {
+    display: flex;
+    justify-content: center;
+    font-size: var(--small-size);
+}
+.user_content .before_login .join::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../images/ico/ico_join.svg) no-repeat center;
+    background-size: 17px 16px;
+    margin-right: 5px;
+}
+/* 로그인후 */
+.user_content .after_login .user_info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+} 
+.user_content .after_login .user_info .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 43px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.user_content .after_login .user_info .img img {
+    max-height: 100%;
+}
+.user_content .after_login .user_info .txt {
+    display: flex;
+    flex-direction: column;
+}
+.user_content .after_login .user_info .txt strong {
+    font-size: var(--default-size);
+    font-weight: 400;
+}
+.user_content .after_login .user_info .txt span {
+    font-size: var(--small-size);
+    color: #999;
+}
+.user_content .after_login .user_info .txt span em {
+    margin-right: 2px;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--main-color);
+}
+.user_content .after_login .user_info .btn_logout {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    margin-top: -16px;
+    background: #ddd url(../images/ico/ico_logout.svg) no-repeat center;
+    border-radius: 50%;
+    text-indent: -9999em;
+    transition: .2s;
+}
+.user_content .after_login .user_info .btn_logout:hover {
+    background-color: #bbb;
+}
+.user_content .after_login .btn_util {
+    display: flex;
+}
+.user_content .after_login .btn_util a {
+    display: flex;
+    position: relative;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    background-color: var(--main-color);
+    font-size: var(--default-size);
+    color: #fff;
+}
+.user_content .after_login .btn_util a::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: no-repeat center;
+    margin-right: 5px;
+}
+.user_content .after_login .btn_util a:nth-child(1)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -1px;
+    width: 1px;
+    height: 15px;
+    margin-top: -8px;
+    background-color: #fff;
+    z-index: 1;
+    opacity: .3;
+}
+.user_content .after_login .btn_util a.my_blog::before {background-image: url(../images/ico/ico_blog.svg);}
+.user_content .after_login .btn_util a.my_write::before {background-image: url(../images/ico/ico_write.svg);}
+
+.user_content .after_login .tab_group .tab_btns {
+    gap: 0;
+    margin: 0;
+}
+.user_content .after_login .tab_group .tab_btns li {
+    flex: 1;
+}
+.user_content .after_login .tab_group .tab_btns li button {
+    justify-content: center;
+    width: 100%;
+    border-radius: 0;
+    background-color: #f5f5f5;
+    padding: 13px 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+    font-size: var(--small-size);
+    color: #999;
+}
+.user_content .after_login .tab_group .tab_btns li.on button,
+.user_content .after_login .tab_group .tab_btns li:hover button {
+    border-bottom: 1px solid #333;
+    color: #333;
+}
+.user_content .after_login .tab_group .tab_content {
+    background-color: #fff;
+}
+.user_content .after_login .tab_group .tab_content > div {
+    display: none;
+}
+.user_content .after_login .tab_group .tab_content > div.on {
+    display: block;
+}
+
+/* 내 소식 */
+.pop_alarm_box {
+    display: flex;
+    box-sizing: border-box;
+    padding: 20px 5px 20px 13px;
+}
+.pop_alarm_box ul {
+    display: flex;
+    width: 100%;
+    max-height: 230px;
+    overflow-y: auto;
+    flex-direction: column;
+    gap: 15px 5px;
+}
+/* 스크롤 바 스타일 */
+.pop_alarm_box ul::-webkit-scrollbar {width: 6px; /* 스크롤 바의 너비 */}
+.pop_alarm_box ul::-webkit-scrollbar-track {background-color: transparent; /* 트랙의 배경 색상 */}
+.pop_alarm_box ul::-webkit-scrollbar-thumb {background-color: #D9D9D9; /* 핸들의 배경 색상 */ border-radius: 6px; /* 핸들의 모서리를 둥글게 만듦 */}
+.pop_alarm_box ul::-webkit-scrollbar-thumb:hover {background-color: #aaa; /* 마우스 호버 시 핸들의 배경 색상 */}
+.pop_alarm_box ul li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+}
+.pop_alarm_box ul li .txt {
+    display: block;
+    overflow: hidden;
+    width: calc(100% - 55px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    font-size: var(--small-size);
+    color: #333;
+}
+.pop_alarm_box ul li .txt strong {
+    font-weight: 600;
+    color: #333;
+}
+.pop_alarm_box ul li .delete {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    background: url(../images/ico/ico_close.svg) no-repeat center;
+    text-indent: -9999em;
+}
+.pop_alarm_box ul li > span {
+    display: block;
+    width: 22px;
+    height: 20px;
+    background: no-repeat center;
+}
+.pop_alarm_box ul li > span.ico_reply {background-image: url(../images/ico/ico_reply_b.svg);}
+.pop_alarm_box ul li > span.ico_like {background-image: url(../images/ico/ico_like_b.svg);}
+.pop_alarm_box ul li > span.ico_subscribe {background-image: url(../images/ico/ico_subscribe_b.svg);}
+
+/* 구독목록 */
+.subscription_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+.subscription_list .search_box {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.subscription_list .search_box input {
+    display: block;
+    width: 100%;
+    padding: 8px 35px 8px 10px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #333;
+    transition: .2s;
+}
+.subscription_list .search_box input:focus {
+    outline: none;
+    border: 1px solid var(--main-color);
+}
+.subscription_list .search_box button {
+    display: block;
+    position: absolute;
+    top: 9px;
+    right: 7px;
+    width: 20px;
+    height: 20px;
+    background: url(../images/ico/ico_search.svg) no-repeat center;
+    background-size: 17px 18px;
+    text-indent: -9999em;
+    cursor: pointer;
+}
+.subscription_list ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+.subscription_list ul li {
+    display: flex;
+    width: calc(50% - 5px);
+    box-sizing: border-box;
+}
+.subscription_list ul li a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.subscription_list ul li .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+.subscription_list ul li .img img {
+    display: block;
+    width: 100%;
+    min-height: 100%;
+}
+.subscription_list ul li a strong {
+    display: block;
+    overflow: hidden;
+    width: calc(100% - 26px - 7px);
+    font-size: var(--small-size);
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.subscription_list .btn_area {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.subscription_list .btn_area button {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: no-repeat center;
+    background-size: 7px auto;
+    cursor: pointer;
+}
+.subscription_list .btn_area button.prev {background-image: url(../images/ico/ico_prev_off.svg);}
+.subscription_list .btn_area button.next {background-image: url(../images/ico/ico_next_all_off.svg);}
+
+/* 내 블로그 목록 */
+.user_content .after_login .tab_content .user_blog {
+    border-bottom: none;
+    padding: 20px;
+}

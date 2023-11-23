@@ -4,6 +4,14 @@
 ============================================================ */
 
 /* layout */
+.wrap.gray {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    height: 100vh;
+}
 .inner {
     width: 1200px;
     margin: 0 auto;
@@ -21,7 +29,8 @@ header {
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     height: 70px;
-    background-color: rgba(255, 255, 255, .9);
+    background-color: rgba(255, 255, 255, .94);
+    z-index: 100;
 }
 header .inner {
     display: flex;
@@ -72,6 +81,7 @@ header .search_box button {
     background: url(../images/ico/ico_search.svg) no-repeat center;
     text-indent: -9999em;
     transform: translateY(-50%);
+    cursor: pointer;
 }
 header .util_box {
     display: flex;
@@ -93,10 +103,14 @@ header .util_box .before_login a:hover {
 }
 header .util_box .after_login {
     display: none;
+    position: relative;
     gap: 25px;
 }
 header .util_box.on .after_login {
     display: flex;
+}
+header .util_box.on .before_login {
+    display: none;
 }
 header .util_box .after_login .user_box {
     position: relative;
@@ -108,6 +122,7 @@ header .util_box .after_login .user_box > a {
     display: flex;
     width: 26px;
     height: 26px;
+    margin-right: 8px;
 }
 .user_box > a .user_nick {
     display: flex;
@@ -143,11 +158,10 @@ header .util_box .after_login .user_box > a {
 .pop_user_menu {
     display: none;
     position: absolute;
-    top: 70px;
-    right: 0;
+    top: 40px;
+    right: -13px;
     width: 242px;
     box-sizing: border-box;
-    padding: 20px;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 12px rgba(0, 0, 0, .19);
@@ -155,12 +169,146 @@ header .util_box .after_login .user_box > a {
 .user_box.on .pop_user_menu {
     display: block;
 }
+.pop_user_menu .info_box {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    position: relative;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.pop_user_menu .info_box .info_user_name {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: var(--default-size);
+}
+.pop_user_menu .info_box .info_user_name strong {
+    display: block;
+    max-width: calc(100% - 14px);
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+.pop_user_menu .info_box .info_email {
+    font-size: var(--small-size);
+    color: #999;
+}
+.pop_user_menu .info_box .ico_set {
+    position: absolute;
+    bottom: 22px;
+    right: 20px;
+}
+.ico_set {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: url(../images/ico/ico_setting.svg) no-repeat center;
+    text-indent: -9999em;
+}
+.ico_write {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: url(../images/ico/ico_writting.svg) no-repeat center;
+    text-indent: -9999em;
+}
+.ico_add {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: url(../images/ico/ico_plus.svg) no-repeat center;
+    text-indent: -9999em;
+}
+.user_blog {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.user_blog .tit_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user_blog .tit_box strong {
+    font-size: var(--small-size);
+    font-weight: 500;
+    color: #999;
+}
+.user_blog ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.user_blog ul li {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+.user_blog ul li span {
+    display: block;
+    width: calc(100% - 40px);
+    font-size: var(--small-size);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+.user_blog ul li .ico_write {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -7px;
+}
+.user_blog ul li .ico_set {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -7px;
+}
+
+.pop_user_menu .btn_group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+}
+.pop_user_menu .btn_group a {
+    display: block;
+    padding: 5px 15px;
+    font-size: var(--small-size);
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    color: #999;
+}
+.pop_user_menu .btn_group a:nth-child(2) {
+    background-color: #ddd;
+    color: #333;
+} 
 
 .ico_alarm {
     display: block;
+    position: relative;
     width: 20px;
     height: 20px;
     background: url(../images/ico/ico_alarm.svg) no-repeat center;
+}
+.ico_alarm::after {
+    content: "";
+    display: none;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    width: 7px;
+    height: 7px;
+    background-color: #CB3636;
+    border-radius: 50%;
+}
+.alarm_box.active .ico_alarm::after {
+    display: block;
 }
 
 .alarm_box {
@@ -170,10 +318,74 @@ header .util_box .after_login .user_box > a {
 
 .pop_alarm {
     display: none;
+    position: absolute;
+    top: 40px;
+    right: -10px;
+    width: 300px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .19);
+    padding: 10px;
 }
+
 .alarm_box.on .pop_alarm {
     display: block;
 }
+.pop_alarm ul {
+    display: flex;
+    overflow-y: auto;
+    max-height: 250px;
+    flex-direction: column;
+    gap: 15px 5px;
+    padding: 10px;
+}
+/* 스크롤 바 스타일 */
+.pop_alarm ul::-webkit-scrollbar {width: 6px; /* 스크롤 바의 너비 */}
+.pop_alarm ul::-webkit-scrollbar-track {background-color: transparent; /* 트랙의 배경 색상 */}
+.pop_alarm ul::-webkit-scrollbar-thumb {background-color: #D9D9D9; /* 핸들의 배경 색상 */ border-radius: 6px; /* 핸들의 모서리를 둥글게 만듦 */}
+.pop_alarm ul::-webkit-scrollbar-thumb:hover {background-color: #aaa; /* 마우스 호버 시 핸들의 배경 색상 */}
+.pop_alarm ul li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+}
+.pop_alarm ul li .txt {
+    display: block;
+    overflow: hidden;
+    width: calc(100% - 55px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    font-size: var(--small-size);
+    color: #333;
+}
+.pop_alarm ul li .txt strong {
+    font-weight: 600;
+    color: #333;
+}
+.pop_alarm ul li .delete {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    background: url(../images/ico/ico_close.svg) no-repeat center;
+    text-indent: -9999em;
+}
+.pop_alarm ul li > span {
+    display: block;
+    width: 22px;
+    height: 20px;
+    background: no-repeat center;
+}
+.pop_alarm ul li > span.ico_reply {background-image: url(../images/ico/ico_reply_b.svg);}
+.pop_alarm ul li > span.ico_like {background-image: url(../images/ico/ico_like_b.svg);}
+.pop_alarm ul li > span.ico_subscribe {background-image: url(../images/ico/ico_subscribe_b.svg);}
 
 /* footer */
 footer {
@@ -184,4 +396,107 @@ footer {
     background-color: #f5f5f5;
     font-size: var(--small-size);
     color: #666;
+}
+
+
+/* 로그인/회원가입 */
+.membership_box {
+    width: 450px;
+}
+.membership_box h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+.membership_box h1 img {
+    display: block;
+    width: 125px;
+}
+.membership_box h1 strong {
+    padding-top: 30px;
+    font-size: 23px;
+    font-weight: 500;
+}
+.membership_area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.membership_area .form_box input {
+    height: 45px;
+    background: #fff no-repeat 21px center;
+    padding-left: 63px;
+    font-size: var(--middle-size);
+}
+.membership_area .ico_id > input {background-image: url(../images/ico/ico_id.svg);}
+.membership_area .ico_pwd > input {background-image: url(../images/ico/ico_secret.svg);}
+.membership_area .ico_tel > input {background-image: url(../images/ico/ico_tel.svg);}
+.membership_area .chk_box input ~ label::before {
+    width: 22px;
+    height: 22px;
+}
+.membership_area .chk_box input ~ label::after {
+    top: 5px;
+    left: 8px;
+}
+.membership_area .chk_box input ~ label {
+    padding-left: 30px;
+    color: #aaa;
+}
+.membership_area .chk_box input:checked ~ label {
+    color: #333;
+}
+.membership_box .btn_area {
+    margin-top: 70px;
+}
+.membership_box .btn_area > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: var(--main-color);
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    transition: .2s;
+}
+.membership_box .btn_area > a:hover {
+    background-color: #ff7878;
+}
+.membership_area .form_box div input {
+    padding-left: 10px;
+}
+.membership_area .btn_box > * {
+    height: 45px;
+    font-size: 16px;
+}
+.etc_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 30px;
+}
+.etc_btn li {
+    position: relative;
+}
+.etc_btn li::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -17px;
+    width: 1px;
+    height: 10px;
+    margin-top: -3px;
+    background-color: #bbb;
+}
+.etc_btn li:last-child::after {
+    display: none;
+}
+.etc_btn li a {
+    font-size: var(--small-size);
 }

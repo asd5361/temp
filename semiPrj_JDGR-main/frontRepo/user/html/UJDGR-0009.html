@@ -7,9 +7,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="../css/allCss.css">
-
-    <!-- js -->
-    <script src="../js/common.js" defer></script>
+    <link rel="stylesheet" href="../css/pbr.css">
 
 </head>
 <body>
@@ -32,7 +30,7 @@
             </div>
 
             <!-- 로그인 시 on class -->
-            <div class="util_box on">
+            <div class="util_box">
 
                 <!-- 로그인 전 -->
                 <div class="before_login">
@@ -42,7 +40,6 @@
                 <!-- 로그인 후 -->
                 <div class="after_login">
 
-                    <!-- 클릭시 on class -->
                     <div class="user_box">
 
                         <a href="">
@@ -93,11 +90,8 @@
 
                     </div>
 
-                    <div class="alarm_box active">
-                        <!-- 
-                            active class를 추가하면 알림표시
-                            on class 추가하면 팝업 표시
-                        -->
+                    <div class="alarm_box">
+                        <!-- on class를 추가하면 알림표시 -->
                         <a href="" class="ico_alarm"></a>
 
                         <!-- 알람 팝업 -->
@@ -108,62 +102,6 @@
                                     <div class="txt">
                                         <strong>유저닉네임</strong>
                                         님이 글제목1에 댓글을 달았습니다.
-                                    </div>
-                                    <a href="" class="delete">삭제</a>
-                                </li>
-                                <li>
-                                    <span class="ico_reply"></span>
-                                    <div class="txt">
-                                        <strong>유저닉네임</strong>
-                                        님이 글제목1에 댓글을 달았습니다.
-                                    </div>
-                                    <a href="" class="delete">삭제</a>
-                                </li>
-                                <li>
-                                    <span class="ico_subscribe"></span>
-                                    <div class="txt">
-                                        <strong>유저닉네임</strong>
-                                        님이 내 블로그를 구독했습니다.
-                                    </div>
-                                    <a href="" class="delete">삭제</a>
-                                </li>
-                                <li>
-                                    <span class="ico_like"></span>
-                                    <div class="txt">
-                                        <strong>유저닉네임</strong>
-                                        님이 내 포스트에 공감을 했습니다.
-                                    </div>
-                                    <a href="" class="delete">삭제</a>
-                                </li>
-                                <li>
-                                    <span class="ico_reply"></span>
-                                    <div class="txt">
-                                        <strong>유저닉네임</strong>
-                                        님이 글제목1에 댓글을 달았습니다.
-                                    </div>
-                                    <a href="" class="delete">삭제</a>
-                                </li>
-                                <li>
-                                    <span class="ico_reply"></span>
-                                    <div class="txt">
-                                        <strong>유저닉네임</strong>
-                                        님이 글제목1에 댓글을 달았습니다.
-                                    </div>
-                                    <a href="" class="delete">삭제</a>
-                                </li>
-                                <li>
-                                    <span class="ico_subscribe"></span>
-                                    <div class="txt">
-                                        <strong>유저닉네임</strong>
-                                        님이 내 블로그를 구독했습니다.
-                                    </div>
-                                    <a href="" class="delete">삭제</a>
-                                </li>
-                                <li>
-                                    <span class="ico_like"></span>
-                                    <div class="txt">
-                                        <strong>유저닉네임</strong>
-                                        님이 내 포스트에 공감을 했습니다.
                                     </div>
                                     <a href="" class="delete">삭제</a>
                                 </li>
@@ -183,49 +121,38 @@
     <!-- main -->
     <main>
         <div class="inner">
-
-            <!-- 여기에 내용작성하시면 됩니다. 고객센터 제외 -->
-            ㅎㄷㅈㅎㄹㅈㄷ
-            fg
-            ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>ew
-            g<br/>
-
+            <h1 class="h1_mypage">마이 페이지</h1>
+            <hr class="hr4">
+           
+            <table class="member_input">
+                <tbody>
+                    <tr>
+                        <td>이름</td>
+                        <td>
+                           
+                            <input type="text" name="memberName" id="memberName" >
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>이메일</td>
+                        <td>
+                           
+                            <input type="email" name="memberEmail" id="memberEmail" >
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호 변경</td>
+                        <td>
+                           
+                            <button>인증번호 전송</button>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </main>
     <!-- //main -->
@@ -234,6 +161,7 @@
     <footer>Copyright © KH Group3 PowerBloger. All Rights Reserved.</footer>
     <!-- //footer -->
 
+    
 </div>
 </body>
 </html>
