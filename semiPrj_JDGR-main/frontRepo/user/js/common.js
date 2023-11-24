@@ -3,9 +3,10 @@
 const userInfoBtn = document.querySelector('header .util_box .after_login .user_box > a');
 const alarmBtn = document.querySelector('.ico_alarm');
 
-// 유저 정보 버튼과 알람 버튼에 클릭 이벤트 리스너 추가
-userInfoBtn.addEventListener('click', toggleHeaderPopup);
-alarmBtn.addEventListener('click', toggleHeaderPopup);
+if (userInfoBtn && alarmBtn) {
+    userInfoBtn.addEventListener('click', toggleHeaderPopup);
+    alarmBtn.addEventListener('click', toggleHeaderPopup);
+}
 
 function toggleHeaderPopup(e) {
     e.preventDefault();
@@ -100,16 +101,66 @@ const tabButtons = document.querySelectorAll('.tab_group .tab_btns button');
 const tabContents = document.querySelectorAll('.tab_group .tab_content');
 const tabContentsDiv = document.querySelectorAll('.tab_group .tab_content > div');
 
-tabButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        const tabCode = this.getAttribute('rel');
-
-        // 모든 탭 버튼과 컨텐츠 숨기기
-        tabButtons.forEach(btn => btn.parentNode.classList.remove('on'));
-        tabContentsDiv.forEach(content => content.classList.remove('on'));
-
-        // 클릭한 탭 버튼과 해당하는 컨텐츠 표시
-        this.parentNode.classList.add('on');
-        document.querySelector('.' + tabCode).classList.add('on');
+if(tabButtons){
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const tabCode = this.getAttribute('rel');
+    
+            // 모든 탭 버튼과 컨텐츠 숨기기
+            tabButtons.forEach(btn => btn.parentNode.classList.remove('on'));
+            tabContentsDiv.forEach(content => content.classList.remove('on'));
+    
+            // 클릭한 탭 버튼과 해당하는 컨텐츠 표시
+            this.parentNode.classList.add('on');
+            document.querySelector('.' + tabCode).classList.add('on');
+        });
     });
-});
+}
+
+
+// 블로그 접기펴기
+const blogBtn = document.querySelectorAll('.blog_layout .blog_left > div > .tit');
+if(blogBtn){
+    blogBtn.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.currentTarget.parentNode.classList.toggle('on');
+        });
+    });
+}
+const blogListBtn = document.querySelectorAll('.b_post_list > a');
+if(blogListBtn){
+    blogListBtn.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.currentTarget.parentNode.classList.toggle('on');
+        });
+    });
+}
+
+// 시계
+const clockEl = document.querySelector('.clock');
+const ampmTxt = document.querySelector('.ampm');
+
+function updateClock() {
+    const now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    let ampm = hours >= 12 ? '오후' : '오전';
+
+    // 한 자리 숫자면 앞에 0을 추가
+    hours = hours % 12 || 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    const timeString = hours + '시 ' + minutes + '분 ' + seconds + '초';
+    const ampmString = ampm;
+    clockEl.textContent = timeString;
+    ampmTxt.textContent = ampmString;
+}
+
+// 1초마다 함수 호출
+setInterval(updateClock, 1000);
+// 페이지 로드 시 업데이트
+updateClock();

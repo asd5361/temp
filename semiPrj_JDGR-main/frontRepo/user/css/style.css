@@ -292,9 +292,10 @@ header .util_box .after_login .user_box > a {
 .ico_alarm {
     display: block;
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
     background: url(../images/ico/ico_alarm.svg) no-repeat center;
+    border-radius: 50%;
 }
 .ico_alarm::after {
     content: "";
@@ -314,6 +315,7 @@ header .util_box .after_login .user_box > a {
 .alarm_box {
     display: flex;
     align-items: center;
+    
 }
 
 .pop_alarm {

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/allCss.css">
+    <link rel="stylesheet" href="../css/kkhpop.css">
+
+    <!-- js -->
+    <script src="../js/common.js" defer></script>
+
+</head>
+<body>
+<div class="wrap">
+
+    <!-- header -->
+    <header>
+        <div class="inner">
+
+            <h1><a href="">JDGR</a></h1>
+
+            <div class="search_box">
+                <select>
+                    <option value="">검색기준</option>
+                    <option value="">검색기준</option>
+                    <option value="">검색기준</option>
+                </select>
+                <input type="text">
+                <button>검색</button>
+            </div>
+
+            <!-- 로그인 시 on class -->
+            <div class="util_box on">
+
+                <!-- 로그인 전 -->
+                <div class="before_login">
+                    <a href="">로그인</a>
+                </div>
+
+                <!-- 로그인 후 -->
+                <div class="after_login">
+
+                    <!-- 클릭시 on class -->
+                    <div class="user_box">
+
+                        <a href="">
+                            <div class="img"><img src="../images/ico/ico_info.svg" alt="유저프로필사진"></div>
+                            <span class="user_nick">유저닉네임<span>님</span></span>
+                            <span class="arrow"></span>
+                        </a>
+
+                        <!-- 유저 팝업 -->
+                        <div class="pop_user_menu">
+                            <div class="info_box">
+                                <div class="info_user_name">
+                                    <strong>유저닉네임</strong>
+                                    <span>님</span>
+                                </div>
+                                <div class="info_email">email1234@gmail.com</div>
+                                <a href="" class="ico_set">관리</a>
+                            </div>
+                            <div class="user_blog">
+                                <div class="tit_box">
+                                    <strong>운영중인 블로그</strong>
+                                    <a href="" class="ico_add">추가하기</a>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <span class="tit">운영중인 블로그 제목1</span>
+                                        <a href="" class="ico_write"></a>
+                                        <a href="" class="ico_set">관리</a>
+                                    </li>
+                                    <li>
+                                        <span class="tit">운영중인 블로그 제목1</span>
+                                        <a href="" class="ico_write"></a>
+                                        <a href="" class="ico_set">관리</a>
+                                    </li>
+                                    <li>
+                                        <span class="tit">운영중인 블로그 제목1</span>
+                                        <a href="" class="ico_write"></a>
+                                        <a href="" class="ico_set">관리</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn_group">
+                                <a href="">고객센터</a>
+                                <a href="">로그아웃</a>
+                            </div>
+                        </div>
+                        <!-- //유저 팝업 -->
+
+                    </div>
+
+                    <div class="alarm_box active">
+                        <!-- 
+                            active class를 추가하면 알림표시
+                            on class 추가하면 팝업 표시
+                        -->
+                        <a href="" class="ico_alarm"></a>
+
+                        <!-- 알람 팝업 -->
+                        <div class="pop_alarm">
+                            <ul>
+                                <li>
+                                    <span class="ico_reply"></span>
+                                    <div class="txt">
+                                        <strong>유저닉네임</strong>
+                                        님이 글제목1에 댓글을 달았습니다.
+                                    </div>
+                                    <a href="" class="delete">삭제</a>
+                                </li>
+                                <li>
+                                    <span class="ico_reply"></span>
+                                    <div class="txt">
+                                        <strong>유저닉네임</strong>
+                                        님이 글제목1에 댓글을 달았습니다.
+                                    </div>
+                                    <a href="" class="delete">삭제</a>
+                                </li>
+                                <li>
+                                    <span class="ico_subscribe"></span>
+                                    <div class="txt">
+                                        <strong>유저닉네임</strong>
+                                        님이 내 블로그를 구독했습니다.
+                                    </div>
+                                    <a href="" class="delete">삭제</a>
+                                </li>
+                                <li>
+                                    <span class="ico_like"></span>
+                                    <div class="txt">
+                                        <strong>유저닉네임</strong>
+                                        님이 내 포스트에 공감을 했습니다.
+                                    </div>
+                                    <a href="" class="delete">삭제</a>
+                                </li>
+                                <li>
+                                    <span class="ico_reply"></span>
+                                    <div class="txt">
+                                        <strong>유저닉네임</strong>
+                                        님이 글제목1에 댓글을 달았습니다.
+                                    </div>
+                                    <a href="" class="delete">삭제</a>
+                                </li>
+                                <li>
+                                    <span class="ico_reply"></span>
+                                    <div class="txt">
+                                        <strong>유저닉네임</strong>
+                                        님이 글제목1에 댓글을 달았습니다.
+                                    </div>
+                                    <a href="" class="delete">삭제</a>
+                                </li>
+                                <li>
+                                    <span class="ico_subscribe"></span>
+                                    <div class="txt">
+                                        <strong>유저닉네임</strong>
+                                        님이 내 블로그를 구독했습니다.
+                                    </div>
+                                    <a href="" class="delete">삭제</a>
+                                </li>
+                                <li>
+                                    <span class="ico_like"></span>
+                                    <div class="txt">
+                                        <strong>유저닉네임</strong>
+                                        님이 내 포스트에 공감을 했습니다.
+                                    </div>
+                                    <a href="" class="delete">삭제</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- //알람 팝업 -->
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+    <!-- //header -->
+
+    <!-- main -->
+    <main>
+        <div class="inner">
+
+            <div class="btn_group">
+                <button class="modal_open" data-target="#pop_warning">경고 팝업</button>
+                <button class="modal_open" data-target="#pop_complete">완료 팝업</button>
+                <button class="modal_open" data-target="#pop_email">기본 팝업</button>
+            </div>
+            <style>
+                .btn_group {
+                    display: flex;
+                    gap: 10px;
+                }
+                .btn_group button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 160px;
+                    height: 38px;
+                    background-color: #333;
+                    color: #fff;
+                    cursor: pointer;
+                }
+            </style>
+
+            
+        </div>
+    </main>
+    <!-- //main -->
+
+    <!-- footer -->
+    <footer>Copyright © KH Group3 PowerBloger. All Rights Reserved.</footer>
+    <!-- //footer -->
+
+
+</div>
+
+<!-- 레이어팝업 모달 -->
+<div id="pop_email" class="modal_bg">
+    <div class="modal_box">
+        <div class="modal_header">
+            <div class="rep_pos_pop"><h2>댓글 / 포스트 신고하기</h2></div>
+            <button class="modal_close">닫기</button>
+        </div>
+        <hr>
+        <div class="writer_content"><h5>작성자&nbsp&nbsp|</h5><br><h5>내&nbsp&nbsp&nbsp&nbsp&nbsp용&nbsp&nbsp|</h5>
+        </div>
+        <hr>
+        <div class="select_reason">사유선택</div>
+        <div class="modal_container">
+            <ul>
+                <li class="list">
+                    <div class="check_area">
+                        <input type="radio" name="select" id="0" class="report_reason">
+                        <label class="reason_content"  for="0">스팸홍보/도배글입니다.</label>
+
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="check_area">
+                        <input type="radio" name="select" id="1" class="report_reason">
+                        <label class="reason_content"  for="1">음란물입니다.</label>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="check_area">
+                        <input type="radio" name="select" id="2" class="report_reason">
+                        <label class="reason_content"  for="2">불법정보를 포함하고 있습니다.</label>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="check_area">
+                        <input type="radio" name="select" id="3" class="report_reason">
+                        <label class="reason_content" for="3">청소년에게 유해한 내용입니다.</label>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="check_area">
+                        <input type="radio" name="select" id="4" class="report_reason">
+                        <label class="reason_content"  for="4">욕설/생명경시/혐오/차별적 표현입니다.</label>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="check_area">
+                        <input type="radio" name="select" id="5" class="report_reason">
+                        <label class="reason_content"  for="5">개인정보 노출 게시물입니다.</label>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="check_area">
+                        <input type="radio" name="select" id="6" class="report_reason">
+                        <label class="reason_content"  for="6">불쾌한 표현이 있습니다.</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="detail_reason">
+            <input type="text" class="detail_content" placeholder="세부 내용 작성">
+        </div>
+        <div class="modal_footer">
+            <button class="modal_close btn_black">신고하기</button>
+        </div>
+    </div>
+</div>
+
+<!-- 레이어팝업 경고 모달 -->
+<div id="pop_warning" class="modal_bg warning">
+    <div class="modal_box">
+        <div class="modal_header">
+            <button class="modal_close">닫기</button>
+        </div>
+        <div class="modal_container">
+            
+            <div class="modal_content">
+                <div class="img"></div>
+                <div class="txt">
+                    <strong>비밀글</strong>
+                    <span>본인이 작성한 1:1문의가 아니라면 보실 수 없습니다.</span>
+                </div>
+            </div>
+            
+        </div>
+        <div class="modal_footer">
+            <button class="modal_close btn_black">확인</button>
+        </div>
+    </div>
+</div>
+
+<!-- 레이어팝업 완료 모달 -->
+<div id="pop_complete" class="modal_bg complete">
+    <div class="modal_box">
+        <div class="modal_header">
+            <button class="modal_close">닫기</button>
+        </div>
+        <div class="modal_container">
+
+            <div class="modal_content">
+                <div class="img"></div>
+                <div class="txt">
+                    <strong>1:1 문의 완료</strong>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal_footer">
+            <button class="modal_close btn_black">확인</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+.rep_pos_pop{
+    margin-left: 30%;
+}
+
+.writer_content{
+    margin-left: 20px;
+}
+
+.select_reason{
+    font-size: 24px;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+
+
+.modal_container{
+    width: 500px;
+    
+    background-color: lightgray;
+    border: 3px;
+    border-color: black;
+}
+
+
+.check_area{
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+}
+
+.reason_content{
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.report_reason{
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+
+
+
+.detail_content{
+    margin-top: 5px;
+    margin-left: 15px;
+    width: 600px;
+    height: 120px;
+    border: 2px;
+    border-color: black;
+}
