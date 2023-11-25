@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/allCss.css">
+    <link rel="stylesheet" href="../css/ydg.css">
+</head>
+<body>
+<div class="wrap">
+
+    <!-- header -->
+    <header>
+        <div class="inner">
+
+            <h1><a href="">JDGR</a></h1>
+
+            <div class="search_box">
+                <select>
+                    <option value="">검색기준</option>
+                    <option value="">검색기준</option>
+                    <option value="">검색기준</option>
+                </select>
+                <input type="text">
+                <button>검색</button>
+            </div>
+
+            <!-- 로그인 시 on class -->
+            <div class="util_box">
+
+                <!-- 로그인 전 -->
+                <div class="before_login">
+                    <a href="">로그인</a>
+                </div>
+
+                <!-- 로그인 후 -->
+                <div class="after_login">
+
+                    <div class="user_box">
+
+                        <a href="">
+                            <div class="img"><img src="../images/ico/ico_info.svg" alt="유저프로필사진"></div>
+                            <span class="user_nick">유저닉네임<span>님</span></span>
+                            <span class="arrow"></span>
+                        </a>
+
+                        <!-- 유저 팝업 -->
+                        <div class="pop_user_menu">
+                            <div class="info_box">
+                                <div class="info_user_name">
+                                    <strong>유저닉네임</strong>
+                                    <span>님</span>
+                                </div>
+                                <div class="info_email">email1234@gmail.com</div>
+                                <a href="" class="ico_set">관리</a>
+                            </div>
+                            <div class="user_blog">
+                                <div class="tit_box">
+                                    <strong>운영중인 블로그</strong>
+                                    <a href="" class="ico_add">추가하기</a>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <span class="tit">운영중인 블로그 제목1</span>
+                                        <a href="" class="ico_write"></a>
+                                        <a href="" class="ico_set">관리</a>
+                                    </li>
+                                    <li>
+                                        <span class="tit">운영중인 블로그 제목1</span>
+                                        <a href="" class="ico_write"></a>
+                                        <a href="" class="ico_set">관리</a>
+                                    </li>
+                                    <li>
+                                        <span class="tit">운영중인 블로그 제목1</span>
+                                        <a href="" class="ico_write"></a>
+                                        <a href="" class="ico_set">관리</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn_group">
+                                <a href="">고객센터</a>
+                                <a href="">로그아웃</a>
+                            </div>
+                        </div>
+                        <!-- //유저 팝업 -->
+
+                    </div>
+
+                    <div class="alarm_box">
+                        <!-- on class를 추가하면 알림표시 -->
+                        <a href="" class="ico_alarm"></a>
+
+                        <!-- 알람 팝업 -->
+                        <div class="pop_alarm">
+                            <ul>
+                                <li>
+                                    <span class="ico_reply"></span>
+                                    <div class="txt">
+                                        <strong>유저닉네임</strong>
+                                        님이 글제목1에 댓글을 달았습니다.
+                                    </div>
+                                    <a href="" class="delete">삭제</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- //알람 팝업 -->
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+    <!-- //header -->
+
+    <!-- main -->
+    <main>
+        <div class="con1 agn_c">
+            <h1>고객센터</h1>
+            <div class="btn_q mtp50">
+                <ul class="tab_btns">
+                    <li><button>고객센터</button></li>
+                    <li><button>공지사항</button></li>
+                    <li class="on"><button>1:1문의</button></li>
+                </ul>
+            </div>
+            <div class="noti_box"></div>
+        </div>
+        <div class="inner">
+            <!-- 여기에 내용작성하시면 됩니다. 고객센터 제외 -->
+            <div class="tbl_box noti_tbl mt50">
+                <table>
+                    <caption>공지사항 상세보기</caption>
+                    <colgroup>
+                        <col width=""/>
+                        <col width=""/>
+                        <col width=""/>
+                        <col width=""/>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>1:1문의 제목입니다.</th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div>
+                                    <div>
+                                        <img src="../images/ico/ico_people.svg"> 관리자
+                                    </div>
+                                    <div>
+                                        <img src="../images/ico/ico_eye.svg">251 
+                                        <img class="ml30" src="../images/ico/ico_cal.svg">2023-11-24
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>공지사항<br>내<br>용<br>입<br>니<br>다<br>ㅋ<br>ㅋㅋㅋ<br><br><br><br><br><br><br>ㅋㅋㅋ<br>ㅋㅋ</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="noti_btn">
+                <a href="" >목록</a>
+                <a href="" >답변 작성</a>
+            </div>
+             <div class="tbl_box noti_ft">
+                <table>
+                    <colgroup>
+                        <col width=""/>
+                        <col width="90%"/>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>이전글</th>
+                            <td><a href="" >공지사항 제목입니다.</a></td>
+                        </tr>
+                        <tr>
+                            <th>이전글</th>
+                            <td><a href="" >공지사항 제목입니다.</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <!-- footer -->
+    <footer>Copyright © KH Group3 PowerBloger. All Rights Reserved.</footer>
+    <!-- //footer -->
+
+</div>
+</body>
+</html>
