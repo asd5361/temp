@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UJDGR-0012-01</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/allCss.css">
+
+
+</head>
+<body>
+    <div class="container01">
+        <div class="header01">
+            <div>카테고리</div>
+            
+            <div><h1>유저가 작성한 블로그 제목</h1></div>
+
+            <div class="head01">
+                <div class="left01">
+                    <span><img class="user" src="../images/ico/ico_info.svg" alt="유저프로필사진"></span>
+                    <span class="nick">유저의 닉네임</span>
+                    <span>2023.11.26 00:00</span>
+                </div> 
+                <div class="right01">
+                    <button class="btn_option"><img class="img01" src="../images/ico/ico_option.svg"><span></span></button>
+                </div>
+            </div>
+            <br>
+        </div>
+        
+            <div class="text01"></div>
+        
+            <div class="footer01">
+                <div class="foot01">
+                    <div class="left02">
+                        <button id="like_btn" class="btn_k un_like" onclick="{clickEvent('like')}">공감 <span>3</span></button>
+                        <button class="btn_k"><img src="../images/ico/ico_reply_b.svg" alt="댓글">댓글 <span>3</span><img src="../images/ico/ico_Vector.svg" alt="댓글열기"></button>
+                    </div>
+                    <div class="right02">
+                        <button id="plus_btn" class="btn_k un_plus" onclick="{clickEvent('plus')}">구독하기</button>
+                        <button class="btn_k"><img src="../images/ico/ico_declaration.svg" alt="신고">신고하기</button>
+                    </div>    
+                </div>
+            </div>
+    </div>
+
+<script>
+    let likeClick = true;
+    let plusClick = true;
+
+    // function likeClickEvent() {
+    //     const likeBtn = document.getElementById('like_btn');
+    //     likeClick ? likeBtn.className = "btn_k like" : likeBtn.className = "btn_k un_like";
+    //     likeClick = !likeClick;
+    // }
+
+
+    // function plusClickEvent() {
+    //     const plusBtn = document.getElementById('plus_btn');
+
+    //     if(plusClick){
+    //         plusBtn.className = "btn_k plus";
+    //     } else {
+    //         plusBtn.className = "btn_k";
+    //     }
+    //     plusClick = !plusClick;
+    // }
+
+    function clickEvent(mode) {
+        switch (mode) {
+            case 'like' :
+                const likeBtn = document.getElementById('like_btn');
+                likeClick ? likeBtn.className = "btn_k like" : likeBtn.className = "btn_k un_like";
+                likeClick = !likeClick;
+            break;
+            case 'plus' :
+                const plusBtn = document.getElementById('plus_btn');
+                plusClick ? plusBtn.className = "btn_k plus" : plusBtn.className = "btn_k";
+                plusClick = !plusClick;
+            break;
+        }
+        
+    }
+</script>
+
+
+</div>
+</body>
+</html>

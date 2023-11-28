@@ -1,0 +1,62 @@
+.postbox {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid gray;
+}
+
+.postbox .postWrite{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+.postImg{
+    overflow: hidden;
+    width: 165px;
+    height:165px;    
+}
+
+.postWriteNick{
+    display:flex;
+    flex-direction: row;
+}
+
+.postNickimg{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+}
+.postNickimg img{
+    width:12px;
+}
+
+.postWrite{
+    width: 605px;
+    height:148px;
+}
+
+.postWriteLink a{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient: vertical;
+}
+
+.postWrite12{
+    display:flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+
+

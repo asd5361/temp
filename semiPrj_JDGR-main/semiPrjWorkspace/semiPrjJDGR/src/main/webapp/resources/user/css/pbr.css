@@ -1,0 +1,110 @@
+.login_div>div >input{
+    padding-left: 65px !important;
+}
+
+.print_id{
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+
+.print_id>div:nth-child(3){
+    color: #ff7878;
+    font-size: 40px;
+}
+.modal_container>div.form_box>.input_email:nth-child(1){
+    width: 125px;
+    margin-left: 25px;
+}
+.modal_container>div.form_box>.input_email{
+    width: 130px;
+    margin: 10px;
+}
+.modal_container>div.form_box>.input_email:nth-child(2){
+    width: 150px;
+}
+.modal_container>div.form_box>select.selet_addr{
+    width: 150px;
+}
+.modal_container>div.form_box>div.inp_btn{
+    margin-top: 10px;
+    text-align: center;
+}
+.modal_container>div.form_box>div.inp_btn>.input_num{
+    width: 309px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.modal_container>div.form_box>div.inp_btn>button{
+    width: 154px;
+    height: 37px;
+}
+.mypage_div{
+    text-align: center;
+}
+.mypage_div>div.title>h1{
+    margin: 70px;
+}
+
+div.mypage_div>table{
+    height: 100px;
+    width: 100%;
+}
+div.mypage_div>table>tbody>tr>td{
+    height: 55px;
+    vertical-align: middle;
+}
+div.mypage_div>table>tbody>tr>td:nth-child(1){
+    width: 200px; 
+    text-align: left;
+}
+div.mypage_div>table>tbody>tr>td:nth-child(2){
+    width: 200px; 
+    text-align: left;
+    padding-right: 400px;
+}
+
+
+div.mypage_div>table>tbody>tr{
+    border-bottom: 1px solid rgb(168, 168, 168);
+}
+/* div.mypage_div>table>tbody>tr>td:nth-child(2)>div.form_box{
+        
+} */
+td>div.form_box>input.input_email:nth-child(1){
+    margin-right: 5px;
+    width: 46.5%;
+    background-color:rgb(231, 231, 231);
+}
+td>div.form_box>input.input_email:nth-child(2){
+    margin-left: 5px;
+    width: 47%;
+    background-color:rgb(231, 231, 231);
+
+}
+
+td>div.form_box>div.btn_box>button.btn_black{
+    width: 120px !important;
+}
+
+
+div.btn_box:nth-child(1)>.dkdk{
+    width: 120px;
+    margin-top: 20px;
+    margin-left: 440px;
+    background-color: #ff7878;
+}
+div.btn_box:nth-child(2)>.dkdk{
+    width: 120px;
+    margin-top: 20px;
+
+    margin-left: 100px;
+    background-color: lightgray;
+}
+
+.btn_area>.btn_box.btn_group>.modal_open{
+    font-size: 20px;
+    height: 50px;
+    background-color: #ff7878;
+}

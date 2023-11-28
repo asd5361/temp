@@ -1,0 +1,551 @@
+@charset "utf-8";
+/* ============================================================
+    파일정의 : common.css
+============================================================ */
+
+/* 정렬 */
+.agn_c{text-align: center !important;}
+.agn_l{text-align: left !important;}
+.agn_r{text-align: right !important;}
+
+/* 마진 */
+.mtp0{margin-top:0 !important}
+.mtp50{margin-top: 50px !important;}
+.ml0{margin-left: 0 !important;}
+.ml10{margin-left: 10px !important;}
+.ml20{margin-left: 20px !important;}
+.ml30{margin-left: 30px !important;}
+.mt0{margin-top: 0 !important;}
+.mt5{margin-top: 5px !important;}
+.mt10{margin-top: 10px !important;}
+.mt15{margin-top: 15px !important;}
+.mt20{margin-top: 20px !important;}
+.mt30{margin-top: 30px !important;}
+.mt40{margin-top: 40px !important;}
+.mt50{margin-top: 50px !important;}
+.mb5{margin-bottom: 5px !important;}
+.mb10{margin-bottom: 10px !important;}
+.mb20{margin-bottom: 20px !important;}
+.mb30{margin-bottom: 30px !important;}
+.mb40{margin-bottom: 40px !important;}
+.mb50{margin-bottom: 50px !important;}
+
+/* rdo_box 라디오박스 */
+.rdo_box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 0;
+}
+.rdo_box + .rdo_box {
+    margin-top: 10px; /* 예비용 */
+}
+.rdo_box span {
+    display: flex;
+    position: relative;
+    width: 180px;
+}
+.rdo_box input {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+}
+.rdo_box input + label {
+    display: flex;
+    position: relative;
+    padding-left: 25px;
+    font-size: var(--default-size);
+    cursor: pointer;
+}
+.rdo_box input + label::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #bfbfbf;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: .3s;
+}
+.rdo_box input + label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    transition: .2s;
+    transform: scale(0);
+}
+.rdo_box input:checked + label::before {
+    border-color: var(--main-color);
+}
+.rdo_box input:checked + label::after {
+    transform: scale(1);
+}
+.rdo_box input:disabled + label::before {
+    border-color: #bfbfbf;
+    background-color: #eee;
+}
+.rdo_box input.checked + label::before {
+    background-color: #eee;
+}
+.rdo_box input.checked + label::after {
+    background-color: #bfbfbf;
+    transform: scale(1);
+}
+.rdo_box.solo {
+    justify-content: center;
+}
+.rdo_box.solo span {
+    width: auto;
+    min-height: 19px;
+    min-width: 0;
+}
+.rdo_box.solo input + label {
+    padding-left: 19px;
+}
+
+/* chk_box 체크박스 */
+.chk_box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 0;
+}
+.chk_box + .chk_box {
+    margin-top: 10px; /* 예비용 */
+}
+.chk_box span {
+    display: flex;
+    position: relative;
+    min-width: 120px;
+}
+.chk_box input {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+}
+.chk_box input ~ label {
+    display: flex;
+    position: relative;
+    padding-left: 25px;
+    font-size: var(--default-size);
+    cursor: pointer;
+}
+.chk_box input ~ label::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-color: #fff;
+    transition: .2s;
+}
+.chk_box input ~ label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 4px;
+    height: 8px;
+    border: 1px solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    transition: .2s;
+}
+.chk_box input:checked ~ label::before {
+    border-color: var(--main-color);
+    background-color: var(--main-color);
+}
+.chk_box input:checked ~ label::after {
+    transform: rotate(45deg) scale(1);
+}
+.chk_box input.checked ~ label::before {
+    background-color: #f5f5f5;
+}
+.chk_box input:disabled ~ label::before {
+    background-color: #eee;
+}
+.chk_box input.checked ~ label::after {
+    border-color: #bdbdbd;
+    transform: rotate(45deg) scale(1);
+}
+.chk_box.solo {
+    justify-content: center;
+}
+.chk_box.solo span {
+    width: auto;
+    min-height: 19px;
+    min-width: 0;
+}
+.chk_box.solo input + label {
+    padding-left: 19px;
+}
+.chk_box.solo.left {
+    justify-content: flex-start;
+}
+
+/* form 폼 */
+.form_box {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.form_box input,
+.form_box select,
+.form_box textarea {
+    display: flex;
+    width: 100%;
+    height: 38px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    padding: 7px 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: var(--default-size);
+    font-weight: 300;
+    color: var(--font-color);
+}
+.form_box input:focus,
+.form_box select:focus {
+    outline: none;
+    border: 1px solid var(--main-color);
+}
+.form_box input::placeholder {
+    font-weight: 200;
+    color: #999;
+}
+.form_box > *:disabled {
+    background-color: #ddd;
+    font-size: var(--default-size);
+    font-weight: 300;
+    color: #aaa;
+}
+
+.req {
+    padding-left: 2px;
+    color: rgb(206, 58, 58);
+}
+.form_box .txt_msg {
+    display: none;
+    align-items: center;
+    margin-top: 5px;
+    font-size: var(--small-size);
+}
+.form_box .txt_msg::before {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: no-repeat center;
+    margin-right: 5px;
+}
+.form_box.com input {border-color: #0C2860;}
+.form_box.err input {border-color: #D30000;}
+.form_box.com .txt_msg {display: flex; color: #0C2860;}
+.form_box.err .txt_msg {display: flex; color: #D30000;}
+.form_box.com .txt_msg::before {background-image: url(../images/ico/ico_com.svg);}
+.form_box.err .txt_msg::before {background-image: url(../images/ico/ico_err.svg);}
+
+.form_box .inp_btn {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.form_box .inp_btn input {
+    width: calc(100% - 140px);
+}
+.form_box .inp_btn button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    border-radius: 5px;
+    background-color: #333;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: .2s;
+}
+.form_box .inp_btn button:hover {
+    background-color: #111;
+}
+
+/* 셀렉트박스 */
+.form_box select {
+    padding-right: 30px;
+}
+
+/* 버튼 */
+.btn_box > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 38px;
+    border-radius: 5px;
+    font-size: var(--default-size);
+    font-weight: 500;
+    transition: .2s;
+    cursor: pointer;
+}
+.btn_box > .btn_black {
+    background-color: #333;
+    color: #fff;
+}
+.btn_box > .btn_black:hover {
+    background-color: #111;
+}
+
+/* 테이블 */
+/* 테이블 */
+.tbl_box {
+    border-top: 1px solid #333;
+}
+.tbl_box table {
+    width: 100%;
+}
+.tbl_box table th {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    text-align: left;
+    background-color: #fff;
+    font-size: var(--default-size);
+    font-weight: 300;
+    color: #333;
+}
+.tbl_box table th:last-child {
+    border-right: none;
+}
+.tbl_box table tbody td {
+    padding: 5px 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    word-break: break-all;
+    font-size: var(--default-size);
+    font-weight: 300;
+    color: var(--font-color);
+}
+.tbl_box table tbody td:last-child {
+    border-right: none;
+}
+.tbl_box table tbody td a {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--font-color);
+}
+.tbl_box table tbody td a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.tbl_box.data {
+    border-top: 1px solid #333;
+}
+.tbl_box.data table th {
+    padding: 10px;
+    border-right: 1px solid #ddd;
+}
+.tbl_box.data table th:last-child {
+    border-right: none;
+}
+.tbl_box.data table td {
+    padding: 10px;
+    border-right: 1px solid #ddd;
+}
+
+/* 페이지네이션 */
+.paging_box ul {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+}
+.paging_box ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 25px;
+    height: 25px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-weight: 300;
+    font-size: 12px;
+    color: #999;
+    transition: .2s;
+}
+.paging_box ul li a:hover,
+.paging_box ul li a:focus,
+.paging_box ul li.on a {
+    background-color: var(--main-color);
+    color: #fff;
+}
+.paging_box ul li.prev_all a,
+.paging_box ul li.prev a,
+.paging_box ul li.next a,
+.paging_box ul li.next_all a {
+    min-width: 25px;
+    padding: 0;
+    background: no-repeat center;
+    background-size: auto 9px;
+    border: none;
+}
+.paging_box ul li.prev_all:hover a,
+.paging_box ul li.prev:hover a,
+.paging_box ul li.next:hover a,
+.paging_box ul li.next_all:hover a {
+    background-color: var(--main-color);
+}
+
+.paging_box ul li.prev_all a {background-image: url(../images/ico/ico_prev_all_off.svg);}
+.paging_box ul li.prev a {background-image: url(../images/ico/ico_prev_off.svg);}
+.paging_box ul li.next a {background-image: url(../images/ico/ico_next_all_off.svg);}
+.paging_box ul li.next_all a {background-image: url(../images/ico/ico_next_off.svg);}
+
+.paging_box ul li.prev_all:hover a {background-image: url(../images/ico/ico_prev_all_on.svg);}
+.paging_box ul li.prev:hover a {background-image: url(../images/ico/ico_prev_on.svg);}
+.paging_box ul li.next:hover a {background-image: url(../images/ico/ico_next_all_on.svg);}
+.paging_box ul li.next_all:hover a {background-image: url(../images/ico/ico_next_on.svg);}
+
+/* 모달 레이어팝업 */
+.modal_bg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 100;
+}
+.modal_box {
+    width: 630px;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 0px 22px rgba(0, 0, 0, .3);
+}
+.modal_bg.complete .modal_box,
+.modal_bg.warning .modal_box {
+    width: 500px;
+}
+.modal_bg.complete .modal_box .modal_header,
+.modal_bg.warning .modal_box .modal_header {
+    padding: 25px 45px;
+}
+.modal_box .modal_header {
+    display: flex;
+    position: relative;
+    padding: 35px 45px;
+}
+.modal_box .modal_header h2 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #333;
+}
+.modal_box .modal_header .modal_close {
+    display: block;
+    position: absolute;
+    top: 43px;
+    right: 50px;
+    width: 20px;
+    height: 20px;
+    background: url(../images/ico/ico_modalClose.svg) no-repeat center;
+    text-indent: -9999em;
+    cursor: pointer;
+}
+.modal_container {
+    padding: 10px 45px;
+}
+.modal_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modal_content .img {
+    width: 100px;
+    height: 100px;
+    background: no-repeat center;
+}
+.modal_bg.warning .modal_content .img {
+    background-image: url(../images/ico/ico_warning.svg);
+}
+.modal_bg.complete .modal_content .img {
+    background-image: url(../images/ico/ico_complete.svg);
+}
+.modal_content .txt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+.modal_content .txt strong {
+    font-size: 20px;
+    font-weight: 500;
+}
+.modal_content .txt span {
+    display: block;
+    width: 190px;
+    word-break: keep-all;
+    text-align: center;
+    font-size: var(--default-size);
+}
+.modal_footer {
+    display: flex;
+    justify-content: center;
+    padding: 30px 45px;
+}
+.modal_footer button,
+.modal_footer a {
+    display: block;
+    padding: 10px 40px;
+    background-color: #333;
+    border-radius: 5px;
+    font-size: var(--default-size);
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 탭 tab */
+.tab_btns {
+    display: flex;
+    gap: 20px;
+    margin: 40px 0 30px;
+}
+.tab_btns li button {
+    display: flex;
+    padding: 8px 20px;
+    border-radius: 30px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    font-size: var(--middle-size);
+    cursor: pointer;
+    transition: .2s;
+}
+.tab_btns li.on button,
+.tab_btns li:hover button {
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: 500;
+}
