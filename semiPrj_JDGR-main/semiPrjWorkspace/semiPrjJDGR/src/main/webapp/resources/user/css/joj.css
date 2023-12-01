@@ -114,28 +114,3 @@ button.btn_k.plus {
     background: url(../images/ico/ico_v2.svg) no-repeat left;
 }
 
-/* 신고팝업 */
-.rdo_box .radio_box {
-    width: 250px;
-}
-
-.top {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-label {
-    border: 1px solid;
-}
-
-.bottom {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    background-color: rgb(105, 202, 105);
-    color: #ffff;
-}
-

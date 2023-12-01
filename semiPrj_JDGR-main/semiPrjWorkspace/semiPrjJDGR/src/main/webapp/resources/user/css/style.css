@@ -453,7 +453,7 @@ footer {
 .membership_box .btn_area {
     margin-top: 70px;
 }
-.membership_box .btn_area > a {
+.membership_box .btn_area > * {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -466,7 +466,7 @@ footer {
     color: #fff;
     transition: .2s;
 }
-.membership_box .btn_area > a:hover {
+.membership_box .btn_area > *:hover {
     background-color: #ff7878;
 }
 .membership_area .form_box div input {

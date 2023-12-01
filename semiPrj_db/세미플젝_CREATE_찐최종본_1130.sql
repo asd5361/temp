@@ -214,7 +214,7 @@ CREATE TABLE CUSTOMER_CENTER (
    ,ANSEWR_DATE       TIMESTAMP
    ,UPDATE_DATE       TIMESTAMP
    ,DEL_YN               CHAR(1)           DEFAULT 'N'
-   ,QUESTION_CATEGORY   CHAR(4)          NOT NULL
+   ,QUESTION_CATEGORY   CHAR(2)          NOT NULL
 );
 
 ---------------------ÄÚ¸àÆ®--------------------

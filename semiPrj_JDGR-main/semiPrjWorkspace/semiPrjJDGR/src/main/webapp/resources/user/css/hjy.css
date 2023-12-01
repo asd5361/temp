@@ -1427,6 +1427,9 @@ li .reply_inp_box::before {
     justify-content: space-between;
 }
 .blog_set_layout .left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 200px;
 }
 .blog_set_layout .right {
@@ -1437,11 +1440,47 @@ li .reply_inp_box::before {
     box-shadow: 0 0 14px rgba(0, 0, 0, .1);
     border-radius: 5px;
 }
+
+.blog_set_layout .left dl dt {
+    font-size: var(--default-size);
+    font-weight: 600;
+    color: #333;
+}
+.blog_set_layout .left dl dd {
+    padding: 20px 10px 20px 38px;
+}
+.blog_set_layout .left dl dd ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    padding: 5px;
+}
+.blog_set_layout .left dl dd ul::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 1px;
+    height: 100%;
+    background-color: #333;
+}
+.blog_set_layout .left dl dd ul li a {
+    font-size: var(--small-size);
+}
+.blog_set_layout .left dl dd ul li:hover a,
+.blog_set_layout .left dl dd ul li.on a {
+    font-weight: 500;
+    color: var(--main-color);
+}
+
 .blog_set_layout .right h2 {
     position: relative;
     padding-bottom: 25px;
     margin-bottom: 45px;
     font-size: 20px;
+    font-weight: 500;
     color: #333;
 }
 .blog_set_layout .right h2::after {
@@ -1521,4 +1560,268 @@ li .reply_inp_box::before {
     border-radius: 5px;
     background-color: #333;
     color: #fff;
+    cursor: pointer;
+}
+.blog_set_layout .right .data_dl dl dd .profile_box .profile_btn .txt {
+    margin-top: 10px;
+    font-size: var(--small-size);
+    color: #999;
+}
+.blog_set_btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+.blog_set_btn > * {
+    display: flex;
+    padding: 10px 47px;
+    border-radius: 30px;
+    background-color: var(--main-color);
+    color: #fff;
+    cursor: pointer;
+    transition: .2s;
+}
+.blog_set_btn > *:hover {
+    background-color: #fd8383;
+}
+
+/* 구독한 블로그 */
+.gd_tbl table {
+    width: 100%;
+    border-top: 1px solid #333;
+}
+.gd_tbl table tr th {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: var(--default-size);
+}
+.gd_tbl table tr td {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+.gd_tbl table tr td:nth-child(2) {
+    padding-left: 30px;
+}
+.gd_tbl table tr td .info a {
+    font-size: var(--default-size);
+}
+.gd_tbl table tr td .info a *:hover {
+    text-decoration: underline;
+}
+.gd_tbl table tr td .info a strong {
+    position: relative;
+    margin-right: 21px;
+    font-weight: 500;
+}
+.gd_tbl table tr td .info a strong::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: -13px;
+    width: 1px;
+    height: 10px;
+    background-color: #ddd;
+}
+.gd_tbl table tr td .info a span {
+    color: #999;
+}
+.gd_tbl table tr td .gd_btn {
+    display: flex;
+    justify-content: center;
+}
+.gd_tbl table tr td .gd_btn > * {
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+.gd_tbl .gd_chk_btn {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.gd_tbl .gd_chk_btn > * {
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: var(--small-size);
+}
+
+/* 스킨선택 */
+.blogSkin_select ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+.blogSkin_select ul li {
+    width: calc(33.33% - 30px);
+}
+.blogSkin_select ul li input {
+    position: absolute;
+    left: -9999em;
+}
+.blogSkin_select ul li label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    gap: 10px;
+    cursor: pointer;
+}
+.blogSkin_select ul li input:checked ~ label {
+    border-color: var(--main-color);
+}
+.blogSkin_select ul li label .color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+.blogSkin_select ul li label[for=skin1] .color {background-color: #ffc1c1; color: #333333;} 
+.blogSkin_select ul li label[for=skin2] .color {background-color: #333333; color: #ffffff;} 
+.blogSkin_select ul li label[for=skin3] .color {background-color: #1F34EF; color: #ffffff;} 
+.blogSkin_select ul li label[for=skin4] .color {background-color: #FFFFFF; color: #333333;} 
+.blogSkin_select ul li label[for=skin5] .color {background-color: #FFEAC1; color: #333333;} 
+.blogSkin_select ul li label[for=skin6] .color {background-color: #DEFFE5; color: #333333;} 
+.blogSkin_select ul li label .txt {
+    display: flex;
+    width: 120px;
+    text-align: center;
+    word-break: keep-all;
+    font-size: var(--default-size);
+}
+
+/* 레이아웃-위젯설정 */
+.layout_select ul {
+    display: flex;
+    gap: 30px;
+}
+.layout_select ul li input {
+    position: absolute;
+    left: -9999em;
+}
+.layout_select ul li label {
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.layout_select ul li input:checked ~ label {
+    border-color: var(--main-color);
+} 
+.layout_select ul li label span {
+    display: block;
+    width: 82px;
+    height: 100px;
+    background: no-repeat center;
+}
+.layout_select ul li label[for=layout1] span {background-image: url(../images/ico/ico_layout1.svg);}
+.layout_select ul li label[for=layout2] span {background-image: url(../images/ico/ico_layout2.svg);}
+.layout_select ul li label[for=layout3] span {background-image: url(../images/ico/ico_layout3.svg);}
+
+.show_chk {
+    margin-top: 7px;
+}
+.show_chk input {
+    position: absolute;
+    left: -9999em;
+}
+.show_chk label {
+    display: flex;
+    position: relative;
+    width: 55px;
+    height: 24px;
+    border-radius: 30px;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: .2s;
+}
+.show_chk input:checked ~ label {
+    background-color: var(--main-color);
+}
+.show_chk input ~ label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: .2s;
+}
+.show_chk input:checked ~ label::after {
+    left: 33px;
+}
+
+/* 글쓰기 */
+.note-editable {
+    min-height: calc(100vh - 460px);
+    background-color: #fff;
+}
+.write_box .btn_area {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+.write_box .btn_area > * {
+    display: flex;
+    padding: 13px 45px;
+    border-radius: 40px;
+    background-color: #ddd;
+    font-size: var(--default-size);
+    font-weight: 500;
+    transition: .2s;
+    cursor: pointer;
+}
+.write_box .btn_area > *.complete {
+    background-color: var(--main-color);
+    color: #fff;
+}
+.write_box .btn_area > *.complete:hover {
+    background-color: #ff7878;
+}
+.write_box .btn_area > *.cancle {
+    color: #999;
+}
+.write_box .btn_area > *.cancle:hover {
+    background-color: #aaa;
+    color: #fff;
+}
+.write_box .inp_area {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+    padding-bottom: 10px;
+}
+.write_box .inp_area label {
+	display: flex;
+	align-items: center;
+	font-size: var(--default-size);
+	color: #999;
+	border: none;
+}
+.write_box .inp_area select,
+.write_box .inp_area input {
+    display: flex;
+    width: calc(100% - 100px);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+.note-tooltip {
+    background-color: transparent !important;
 }
