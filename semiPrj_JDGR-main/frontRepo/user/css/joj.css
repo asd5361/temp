@@ -12,13 +12,19 @@
 .head01 {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
-.head01 > .right01 {
+.head01 > .right01 > .reply_pop {
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 20px;
+}
+
+.right01 > .set {
+    position: relative;
+}
+.right01 > .set.on  > .reply_pop > div {
+    display: flex;
 }
 
 .head01 > .left01 {
@@ -92,9 +98,6 @@
     margin-right: 10px;
 }
 
-.btn_k > img:nth-child(2) {
-    margin-left: 10px;
-}
 
 .btn_option {
     border: none;
@@ -114,28 +117,6 @@ button.btn_k.plus {
     background: url(../images/ico/ico_v2.svg) no-repeat 15px center;
 }
 
-/* 신고팝업 */
-.rdo_box .radio_box {
-    width: 250px;
+button.btn_k.rep {
+    background: url(../images/ico/ico_reply_b.svg) no-repeat 15px center;
 }
-
-.top {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-label {
-    border: 1px solid;
-}
-
-.bottom {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    background-color: rgb(105, 202, 105);
-    color: #ffff;
-}
-

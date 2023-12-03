@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.semi.jdgr.blog.service.BlogService;
 import com.semi.jdgr.blog.vo.PostVo;
 
-@WebServlet("/user/blog/write")
+@WebServlet("/blog/write")
 public class BlogWriteController extends HttpServlet {
 	
 	// 블로그 글쓰기 화면

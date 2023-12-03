@@ -34,23 +34,22 @@ public class MemberLoginController extends HttpServlet {
 			// service
 			MemberService ms = new MemberService();
 			MemberVo loginMember = ms.login(vo);
-			
+
+			HttpSession session = req.getSession();
 			// result (==view)
 			if(loginMember == null) {
+				session.setAttribute("alertMsg", "아이디 또는 비밀번호가 틀렸습니다.");
 				throw new Exception("로그인 실패 ...");
 			}
 			
-			HttpSession session = req.getSession();
-			session.setAttribute("alertMsg", "로그인 성공!");
 			session.setAttribute("loginMember", loginMember);
-			req.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(req, resp);
-//			resp.sendRedirect("/app99/home"); 
+			resp.sendRedirect("/jdgr/home"); 
 			
 		}catch(Exception e) {
-			System.out.println("[ERROR-M002] 로그인 중 예외 발생 ...");
 			e.printStackTrace();
-			req.setAttribute("errorMsg", "로그인 실패");
-			req.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(req, resp);
+			
+			resp.sendRedirect("/jdgr/member/login"); 
+			
 		}
 		
 	}

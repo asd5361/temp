@@ -10,7 +10,7 @@
             <div class="btn_q mtp50">
                 <ul class="tab_btns">
                     <li><button onclick="location.href='/jdgr/csboard';">고객센터</button></li>
-                    <li><button onclick="location.href='/jdgr/notice/list';">공지사항</button></li>
+                    <li><button onclick="location.href='/jdgr/notice/list?pno=1';">공지사항</button></li>
                     <li class="on"><button onclick="location.href='/jdgr/csboard/list';">1:1문의</button></li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="noti_btn qboard_btn mb50">
                 <a href="#" class="modal_open" data-target="#pop_complete">문의 접수</a>
-                <a href="" >취소</a>
+                <a href="/jdgr/csboard/list" >취소</a>
             </div>
              
         </div>

@@ -188,7 +188,6 @@
 /* 로그인전 */
 .user_content .before_login {
     display: flex;
-    display: none;
     flex-direction: column;
     padding: 20px;
     gap: 10px;
@@ -520,11 +519,15 @@
 /* 블로그 headerCss */
 .blog header {
     position: static;
-}
-.blog header {
     border-bottom: none;
     height: 50px;
     background-color: transparent;
+}
+.blog header h1 {
+    display: none;
+}
+.blog header .blog_home {
+    display: block;
 }
 .blog header .inner {
     height: 50px;
@@ -533,9 +536,7 @@
 .blog header .search_box {
     background-color: #fff;
 }
-.blog header h1 {
-    display: none;
-}
+
 .blog header .search_box select {
     display: none;
 } 
@@ -1801,27 +1802,125 @@ li .reply_inp_box::before {
     color: #fff;
 }
 .write_box .inp_area {
-	display: flex;
-	justify-content: space-between;
-	gap: 10px;
     padding-bottom: 10px;
 }
-.write_box .inp_area label {
-	display: flex;
-	align-items: center;
-	font-size: var(--default-size);
-	color: #999;
-	border: none;
-}
-.write_box .inp_area select,
-.write_box .inp_area input {
+.write_box .inp_area select {
     display: flex;
-    width: calc(100% - 100px);
+    width: 100%;
     padding: 10px 20px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    box-sizing: border-box;
+
 }
 .note-tooltip {
     background-color: transparent !important;
+}
+
+/* 계정관리 */
+.account_setting {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.account_setting dl {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.account_setting dl dt {
+    font-size: 17px;
+}
+.blog_using dd {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.blog_using dd li input[type=radio] {
+    position: absolute;
+    left: -9999em;
+}
+.blog_list {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.blog_using dd li input[type=radio] ~ label {
+    display: flex;
+    position: relative;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.blog_using dd li input[type=radio]:checked ~ label {
+    border-color: var(--main-color);
+}
+.blog_using dd li input[type=radio]:checked ~ label .req {
+    display: flex;
+}
+.blog_using dd li label .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+}
+.blog_using dd li label .img img {
+    display: block;
+    min-height: 100%;
+    max-height: 100%;
+}
+.blog_using dd li label .cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+.blog_using dd li label .cont .tit {
+    font-size: 16px;
+}
+.blog_using dd li label .cont a {
+    font-size: var(--default-size);
+    color: #999;
+}
+.blog_using dd li label .req {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -15px;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 30px;
+    background-color: var(--main-color);
+    font-size: var(--small-size);
+    color: #fff;
+}
+.blog_using .btn_area {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.blog_using .btn_area > * {
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--main-color);
+    color: #fff;
+}
+.blog_create dd {
+    display: flex;
+    justify-content: space-between;
+}
+.blog_create .btn_area > * {
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--main-color);
+    color: #fff;
 }

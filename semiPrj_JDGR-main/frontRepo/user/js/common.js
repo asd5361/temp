@@ -209,7 +209,7 @@ replayPop(document);
 
 
 // 댓글수정 버튼
-const editBtn = document.querySelectorAll('.reply_pop > div .edit');
+const editBtn = document.querySelectorAll('.b_post_reply .reply_pop > div .edit');
 if(editBtn){
     editBtn.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -226,7 +226,7 @@ if(editBtn){
     });
 }
 // 댓글삭제 버튼
-const deleteBtn = document.querySelectorAll('.reply_pop > div .delete');
+const deleteBtn = document.querySelectorAll('.b_post_reply .reply_pop > div .delete');
 let blindEl = null;
 if(deleteBtn){
     deleteBtn.forEach(btn => {

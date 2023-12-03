@@ -88,6 +88,13 @@ header .util_box {
     align-items: center;
     gap: 25px;
 }
+header .util_box .blog_home {
+    display: none;
+}
+header .util_box .blog_home a {
+    font-size: var(--default-size);
+    color: #333;
+}
 header .util_box .before_login a {
     display: flex;
     padding: 4px 15px;
@@ -102,7 +109,7 @@ header .util_box .before_login a:hover {
     color: #fff;
 }
 header .util_box .after_login {
-    display: none;
+    display: flex;
     position: relative;
     gap: 25px;
 }
@@ -248,7 +255,7 @@ header .util_box .after_login .user_box > a {
     position: relative;
     align-items: center;
 }
-.user_blog ul li span {
+.user_blog ul li a.tit {
     display: block;
     width: calc(100% - 40px);
     font-size: var(--small-size);
@@ -256,6 +263,9 @@ header .util_box .after_login .user_box > a {
     white-space: nowrap;
     text-overflow: ellipsis;
     word-break: break-all;
+}
+.user_blog ul li:hover a.tit {
+    text-decoration: underline;
 }
 .user_blog ul li .ico_write {
     position: absolute;
@@ -465,6 +475,7 @@ footer {
     font-weight: 500;
     color: #fff;
     transition: .2s;
+    cursor: pointer;
 }
 .membership_box .btn_area > *:hover {
     background-color: #ff7878;

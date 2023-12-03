@@ -85,4 +85,11 @@ public class MemberDao {
 		return loginMember;
 	}
 
+	public int updateMemberInfo(Connection conn, MemberVo vo) {
+
+		String sql =
+		
+		return 0;
+	}
+
 }

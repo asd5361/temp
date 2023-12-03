@@ -8,6 +8,11 @@ import com.semi.jdgr.util.JDBCTemplate;
 
 public class MemberService {
 
+	MemberDao dao = null;
+	public MemberService() {
+		dao = new MemberDao();
+	}
+
 	public int join(MemberVo vo) throws Exception {
 		Connection conn = JDBCTemplate.getConnection();
 		
@@ -17,7 +22,6 @@ public class MemberService {
 		//비밀번호 8자 이상
 		//비밀번호 영문 한글 둘다 포함
 		
-		MemberDao dao = new MemberDao();
 		int result = dao.join(conn,vo);
 		
 		if(result == 1) {
@@ -34,7 +38,7 @@ public class MemberService {
 	public boolean checkIdDup(String memberId) throws Exception {
 		Connection conn = JDBCTemplate.getConnection();
 		
-		MemberDao dao = new MemberDao();
+		
 		boolean result = dao.checkIdDup(conn, memberId);
 		
 		JDBCTemplate.close(conn);
@@ -47,13 +51,29 @@ public class MemberService {
 		Connection conn = JDBCTemplate.getConnection();
 		
 		//dao
-		MemberDao dao = new MemberDao();
+		
 		MemberVo loginMember = dao.login(conn ,vo);
 		
 		//close
 		JDBCTemplate.close(conn);
 		
 		return loginMember;	
+	}
+
+	public int updateMemberInfo(MemberVo vo) throws Exception {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = dao.updateMemberInfo(conn,vo);
+		
+		if(result ==1) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		
+		
+		return result;
 	}
 	
 }
