@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberMapper">
+	<insert id="join">
+		INSERT INTO MEMBER (NO,ID,PWD,NICK) VALUES (SEQ_MEMBER_NO.NEXTVAL,#{id},#{pwd},#{nick})
+	</insert>
+  
+	<select id="list" resultType="com.kh.app.member.vo.MemberVo">
+		SELECT * FROM MEMBER
+	</select>
+	
+	<select id="detail" resultType="com.kh.app.member.vo.MemberVo">
+		SELECT * FROM MEMBER WHERE NO = #{no}
+	</select>
+	
+	<update id="update">
+		UPDATE MEMBER
+		<set>
+			<if test="pwd != null">
+				PWD = #{pwd}	
+			</if>
+			<if test="nick">
+				, NICK = #{nick}
+			</if>
+		</set>
+		WHERE NO = #{no}
+	</update>
+</mapper>
