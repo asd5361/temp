@@ -1,6 +1,7 @@
 
 -- 허가여부는 추후에 안 쓰면 수정 예정
--- 질문 ) 투표의 유형이 어떻게 되는가?
+-- 질문 ) 투표의 유형이 어떻게 되는가? (일반? 공식?)
+-- 의문 ) 결과가 중복으로 나올 때 어떻게 처리해야하는가?
 -----------------
 INSERT INTO MEMBER (MEMBER_NO,UNIT_NO,PHONE,PWD,NAME,GENDER,BIRTH) 
 VALUES (SEQ_MEMBER_NO.NEXTVAL,1,010-1111-1111,1234,'강현묵묵','F','960703');
@@ -196,7 +197,7 @@ FROM
     ON
         R.ITEM_NO = I.ITEM_NO)
 WHERE 
-    VOTE_NO = 1
+    VOTE_NO = 4
 GROUP BY
     ITEM_NO, ITEM_NAME, VOTE_ORDER
 ;
@@ -213,11 +214,10 @@ INSERT INTO
 VALUES
 (
     SEQ_VOTE_HISTORY_NO.NEXTVAL
-    ,1
-    ,'01 테스트 투표 결과'
-    ,3
+    ,4
+    ,'반'
     ,5
-    ,1
+    ,2
 );
 ----------------------------------------------- voteCheck // 투표 조회
 SELECT 
@@ -234,7 +234,7 @@ FROM
     ON
         R.ITEM_NO = I.ITEM_NO)
 WHERE 
-    VOTE_NO = 1
+    VOTE_NO = 5
 GROUP BY
     ITEM_NO, ITEM_NAME, VOTE_ORDER
 ;
@@ -343,16 +343,41 @@ AND
 ORDER BY 
     VOTE_NO DESC
 ;
----------여기부터 JOIN하기
--------------------------------------------------- history // 투표 결과 이력 조회
+-------------------------------------------------- history // 투표 결과 상세 조회
 SELECT 
     VOTE_HISTORY_NO
-    ,VOTE_NO
+    ,MANAGER_NO
+    ,TITLE
+    ,CONTENT
+    ,ACCEPT_YN
+    ,H.VOTE_NO
     ,VOTE_NAME
     ,VOTE_COUNT
     ,VOTE_ORDER
 FROM
-    VOTE_HISTORY
+    VOTE_HISTORY H
+JOIN
+    VOTE_BOARD B
+ON
+    H.VOTE_NO = B.VOTE_NO
 ;
-
-
+-----------------------------------------------노션에 추가 하기+중복칼럼 의견전달-- admin/history // 관리자 투표 전체 결과 이력 조회  
+SELECT 
+    VOTE_HISTORY_NO
+    ,MANAGER_NO
+    ,TITLE
+    ,CONTENT
+    ,ENROLL_DATE
+    ,DEADLINE_DATE
+    ,ACCEPT_YN
+    ,H.VOTE_NO
+    ,VOTE_NAME
+    ,VOTE_COUNT
+    ,VOTE_ORDER
+FROM
+    VOTE_HISTORY H
+JOIN
+    VOTE_BOARD B
+ON
+    H.VOTE_NO = B.VOTE_NO
+;
