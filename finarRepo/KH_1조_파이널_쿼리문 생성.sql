@@ -1,10 +1,7 @@
 
 -- 허가여부는 추후에 안 쓰면 수정 예정
 -- 질문 ) 투표의 유형이 어떻게 되는가? (일반? 공식?)
--- 의문 ) 결과가 중복으로 나올 때 어떻게 처리해야하는가?
------------------
-INSERT INTO MEMBER (MEMBER_NO,UNIT_NO,PHONE,PWD,NAME,GENDER,BIRTH) 
-VALUES (SEQ_MEMBER_NO.NEXTVAL,1,010-1111-1111,1234,'강현묵묵','F','960703');
+------------------------------------------------------------ 전자 투표 --------------------------------------------------
 -------------------------list // 전체 게시글 조회
 SELECT 
     VOTE_NO
@@ -24,6 +21,7 @@ ORDER BY
     VOTE_NO DESC
 ;
 -------------------------detail //게시글 상세 조회
+-- 게시글 조회
 SELECT 
     VOTE_NO
     ,V.MANAGER_NO
@@ -45,6 +43,7 @@ WHERE
 ORDER BY 
     VOTE_NO DESC
 ;
+-- 게시글의 투표 항목 조회
 SELECT 
     ITEM_NO
     ,VOTE_NO
@@ -68,8 +67,8 @@ VOTE_BOARD
 VALUES 
 (
     SEQ_VOTE_BOARD_NO.NEXTVAL
-    ,1
-    ,'01번 테스트 전자 투표'
+    ,11
+    ,'11번 테스트 전자 투표'
     ,'테스트용 투표 진행합니다.'
 );
 INSERT INTO 
@@ -84,7 +83,7 @@ VOTE_ITEM
 VALUES
 (
     SEQ_VOTE_ITEM_NO.NEXTVAL
-    ,1
+    ,11
     ,'TEST1'
     ,1
     ,'일반투표'
@@ -101,7 +100,7 @@ VOTE_ITEM
 VALUES
 (
     SEQ_VOTE_ITEM_NO.NEXTVAL
-    ,1
+    ,11
     ,'TEST2'
     ,2
     ,'일반투표'
@@ -118,7 +117,7 @@ VOTE_ITEM
 VALUES
 (
     SEQ_VOTE_ITEM_NO.NEXTVAL
-    ,1
+    ,11
     ,'TEST3'
     ,3
     ,'일반투표'
@@ -131,7 +130,7 @@ SET
     TITLE = '변경, 게시글 수정 테스트 투표 제목'
     ,CONTENT = '변경, 게시글 수정 테스트 투표 설명글'
 WHERE 
-    VOTE_NO = 1
+    VOTE_NO = 11
 ;
 ---------------------------------delete // 게시글 삭제
 UPDATE 
@@ -139,7 +138,7 @@ UPDATE
 SET
     DEL_YN = 'Y'
 WHERE 
-    VOTE_NO = 1
+    VOTE_NO = 11
 ;
 -------------------------------------select //게시글 검색
 SELECT 
@@ -180,7 +179,7 @@ UPDATE
 SET
     DEADLINE_DATE = SYSDATE
 WHERE
-    VOTE_NO = 1
+    VOTE_NO = 11
 ;
 -- 투표 조회
 SELECT 
@@ -197,11 +196,11 @@ FROM
     ON
         R.ITEM_NO = I.ITEM_NO)
 WHERE 
-    VOTE_NO = 4
+    VOTE_NO = 3
 GROUP BY
     ITEM_NO, ITEM_NAME, VOTE_ORDER
 ;
--- 투표 결과 테이블 삽입
+-- 투표 모든 결과 테이블 삽입
 INSERT INTO
     VOTE_HISTORY
 (
@@ -214,10 +213,44 @@ INSERT INTO
 VALUES
 (
     SEQ_VOTE_HISTORY_NO.NEXTVAL
-    ,4
-    ,'반'
-    ,5
+    ,3
+    ,'보라색'
+    ,1
+    ,1
+);
+INSERT INTO
+    VOTE_HISTORY
+(
+    VOTE_HISTORY_NO
+    ,VOTE_NO
+    ,VOTE_NAME
+    ,VOTE_COUNT
+    ,VOTE_ORDER
+)
+VALUES
+(
+    SEQ_VOTE_HISTORY_NO.NEXTVAL
+    ,3
+    ,'파란색'
+    ,3
     ,2
+);
+INSERT INTO
+    VOTE_HISTORY
+(
+    VOTE_HISTORY_NO
+    ,VOTE_NO
+    ,VOTE_NAME
+    ,VOTE_COUNT
+    ,VOTE_ORDER
+)
+VALUES
+(
+    SEQ_VOTE_HISTORY_NO.NEXTVAL
+    ,3
+    ,'노란색'
+    ,2
+    ,3
 );
 ----------------------------------------------- voteCheck // 투표 조회
 SELECT 
@@ -361,7 +394,7 @@ JOIN
 ON
     H.VOTE_NO = B.VOTE_NO
 ;
------------------------------------------------노션에 추가 하기+중복칼럼 의견전달-- admin/history // 관리자 투표 전체 결과 이력 조회  
+----------------------------------------------- history // 관리자 투표 전체 결과 이력 조회  
 SELECT 
     VOTE_HISTORY_NO
     ,MANAGER_NO
@@ -381,3 +414,160 @@ JOIN
 ON
     H.VOTE_NO = B.VOTE_NO
 ;
+-----------------------------------------------------------------------------------민원접수----------------------------------------------
+-----------------------mySumitList//내 민원 글조회 (썸네일 사용 시)
+SELECT 
+    C.COMPLAINT_NO
+    ,MEMBER_NO
+    ,TITLE
+    ,ENROLL_DATE
+    ,STATUS
+    ,IMG_NO
+    ,IMG_NAME
+    ,PATH
+FROM
+    COMPLAINT C
+JOIN
+    COMPLAINT_IMG I
+ON
+    C.COMPLAINT_NO = I.COMPLAINT_NO
+WHERE
+    DEL_YN = 'N'
+AND
+    C.MEMBER_NO = 1
+ORDER BY
+    COMPLAINT_NO DESC
+;
+
+-----------------------------------------sumit //접수
+-- 민원 접수
+INSERT INTO
+    COMPLAINT
+(
+    COMPLAINT_NO
+    ,MANAGER_NO
+    ,MEMBER_NO
+    ,TITLE
+    ,CONTENT
+)
+VALUES
+(
+    SEQ_COMPLAINT_NO.NEXTVAL
+    ,1
+    ,6
+    ,'666 테스트 민원 글 제목입니다.'
+    ,'666 민원 테스트 본문 글입니다.'
+)
+;
+-- 민원에 첨부된 사진 삽입
+INSERT INTO
+    COMPLAINT_IMG
+(
+    IMG_NO
+    ,COMPLAINT_NO
+    ,IMG_NAME
+    ,PATH
+    ,ORIGIN_NAME
+)
+VALUES
+(
+    SEQ_COMPLAINT_IMG_NO.NEXTVAL
+    ,6
+    ,'complaint_img_' || TO_CHAR(SYSDATE,'YYYYMMDDHH24miSS')
+    ,'resources/uplode/'
+    ,'img06'
+)
+;
+
+-------------------------------------mySumitDetail // 내 민원 상세 조회
+SELECT 
+    C.COMPLAINT_NO
+    ,MEMBER_NO
+    ,TITLE
+    ,CONTENT
+    ,ENROLL_DATE
+    ,STATUS
+    ,REPLY
+    ,REPLY_DATE 
+    ,IMG_NO
+    ,IMG_NAME
+    ,PATH
+FROM
+    COMPLAINT C
+JOIN
+    COMPLAINT_IMG I
+ON
+    C.COMPLAINT_NO = I.COMPLAINT_NO
+WHERE
+    DEL_YN = 'N'
+AND
+    C.MEMBER_NO = 1
+AND
+    C.COMPLAINT_NO = 1
+;
+--------------------------------------list // 전체 게시글 조회
+SELECT 
+    C.COMPLAINT_NO
+    ,MANAGER_NO
+    ,MEMBER_NO
+    ,TITLE
+    ,CONTENT
+    ,ENROLL_DATE
+    ,DEL_YN
+    ,STATUS
+    ,REPLY
+    ,REPLY_DATE 
+    ,IMG_NO
+    ,IMG_NAME
+    ,PATH
+    ,ORIGIN_NAME
+FROM
+    COMPLAINT C
+JOIN
+    COMPLAINT_IMG I
+ON
+    C.COMPLAINT_NO = I.COMPLAINT_NO
+ORDER BY
+    COMPLAINT_NO DESC
+;
+-------------------------------------detail //게시글 상세 조회
+SELECT 
+    C.COMPLAINT_NO
+    ,MANAGER_NO
+    ,MEMBER_NO
+    ,TITLE
+    ,CONTENT
+    ,ENROLL_DATE
+    ,DEL_YN
+    ,STATUS
+    ,REPLY
+    ,REPLY_DATE 
+    ,IMG_NO
+    ,IMG_NAME
+    ,PATH
+    ,ORIGIN_NAME
+FROM
+    COMPLAINT C
+JOIN
+    COMPLAINT_IMG I
+ON
+    C.COMPLAINT_NO = I.COMPLAINT_NO
+WHERE
+    C.MEMBER_NO = 1
+AND
+    C.COMPLAINT_NO = 1
+;
+-- clear // 민원 해결 글 작성
+UPDATE 
+    COMPLAINT
+SET
+    MANAGER_NO = 1
+    ,STATUS = 'Y'
+    ,REPLY = '테스트 답변 입니다.'
+    ,REPLY_DATE = SYSDATE
+WHERE
+    COMPLAINT_NO = 6
+;
+--------------------------------------여기부터
+--select // 전체 민원 검색
+
