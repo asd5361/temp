@@ -570,4 +570,44 @@ WHERE
 ;
 --------------------------------------여기부터
 --select // 전체 민원 검색
-
+SELECT  
+    C.COMPLAINT_NO
+    ,MANAGER_NO
+    ,MEMBER_NO
+    ,TITLE
+    ,CONTENT
+    ,ENROLL_DATE
+    ,DEL_YN
+    ,STATUS
+    ,REPLY
+    ,REPLY_DATE
+    ,IMG_NO
+    ,IMG_NAME
+    ,PATH
+    ,ORIGIN_NAME
+FROM
+    COMPLAINT C
+JOIN
+    COMPLAINT_IMG I
+ON
+    C.COMPLAINT_NO = I.COMPLAINT_NO
+WHERE
+    TITLE LIKE '%%'
+AND
+    CONTENT LIKE '%%'
+AND
+    DEL_YN LIKE '%%'
+--OR
+--    REPLY LIKE '%%'
+--AND
+--    REPLY IS NULL
+--AND
+--    STATUS  LIKE '%%' 
+--OR STATUS LIKE IS NULL
+AND
+    (ENROLL_DATE BETWEEN TO_DATE('20230101') AND TO_DATE('20241231'))
+--AND
+--    (REPLY_DATE BETWEEN TO_DATE('20230101') AND TO_DATE('20241231'))
+ORDER BY
+    C.COMPLAINT_NO DESC
+;
