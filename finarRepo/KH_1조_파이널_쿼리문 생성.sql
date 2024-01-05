@@ -40,6 +40,8 @@ ON
     M.MANAGER_NO = V.MANAGER_NO
 WHERE 
     DEL_YN = 'N' 
+AND
+    VOTE_NO = 1
 ORDER BY 
     VOTE_NO DESC
 ;
