@@ -58,7 +58,9 @@ WHERE
     VOTE_NO = 1
 ;
 --------------------------insert //게시글 작성 + 투표 항목 선정
-INSERT INTO 
+
+INSERT
+INTO 
 VOTE_BOARD
 (
     VOTE_NO
@@ -73,7 +75,9 @@ VALUES
     ,'11번 테스트 전자 투표'
     ,'테스트용 투표 진행합니다.'
 );
-INSERT INTO 
+    
+INSERT All
+INTO
 VOTE_ITEM
 (
     ITEM_NO
@@ -84,13 +88,13 @@ VOTE_ITEM
 )
 VALUES
 (
-    SEQ_VOTE_ITEM_NO.NEXTVAL
+    (SELECT GET_ITEM_SEQ() FROM DUAL )
     ,11
     ,'TEST1'
     ,1
     ,'일반투표'
-);
-INSERT INTO 
+)
+INTO 
 VOTE_ITEM
 (
     ITEM_NO
@@ -101,13 +105,13 @@ VOTE_ITEM
 )
 VALUES
 (
-    SEQ_VOTE_ITEM_NO.NEXTVAL
+    (SELECT GET_ITEM_SEQ() FROM DUAL )
     ,11
     ,'TEST2'
     ,2
     ,'일반투표'
-);
-INSERT INTO 
+)
+INTO 
 VOTE_ITEM
 (
     ITEM_NO
@@ -118,12 +122,13 @@ VOTE_ITEM
 )
 VALUES
 (
-    SEQ_VOTE_ITEM_NO.NEXTVAL
+    (SELECT GET_ITEM_SEQ() FROM DUAL )
     ,11
     ,'TEST3'
     ,3
     ,'일반투표'
-);
+)
+select * from dual;
 COMMIT;
 ----------------------------------edit //게시글 수정 (글제목, 글내용)
 UPDATE 
