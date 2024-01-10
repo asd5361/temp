@@ -89,7 +89,7 @@ VOTE_ITEM
 VALUES
 (
     (SELECT GET_ITEM_SEQ() FROM DUAL )
-    ,11
+    ,6
     ,'TEST1'
     ,1
     ,'일반투표'
@@ -106,7 +106,7 @@ VOTE_ITEM
 VALUES
 (
     (SELECT GET_ITEM_SEQ() FROM DUAL )
-    ,11
+    ,6
     ,'TEST2'
     ,2
     ,'일반투표'
@@ -123,7 +123,7 @@ VOTE_ITEM
 VALUES
 (
     (SELECT GET_ITEM_SEQ() FROM DUAL )
-    ,11
+    ,6
     ,'TEST3'
     ,3
     ,'일반투표'
@@ -137,7 +137,7 @@ SET
     TITLE = '변경, 게시글 수정 테스트 투표 제목'
     ,CONTENT = '변경, 게시글 수정 테스트 투표 설명글'
 WHERE 
-    VOTE_NO = 11
+    VOTE_NO = 6
 ;
 ---------------------------------delete // 게시글 삭제
 UPDATE 
@@ -145,7 +145,7 @@ UPDATE
 SET
     DEL_YN = 'Y'
 WHERE 
-    VOTE_NO = 11
+    VOTE_NO = 6
 ;
 -------------------------------------select //게시글 검색
 SELECT 
@@ -186,11 +186,12 @@ UPDATE
 SET
     DEADLINE_DATE = SYSDATE
 WHERE
-    VOTE_NO = 11
+    VOTE_NO = 3
 ;
 -- 투표 조회
 SELECT 
-    ITEM_NAME
+    VOTE_NO
+    ,ITEM_NAME
     ,COUNT(*)
     ,VOTE_ORDER
 FROM 
@@ -205,10 +206,11 @@ FROM
 WHERE 
     VOTE_NO = 3
 GROUP BY
-    ITEM_NO, ITEM_NAME, VOTE_ORDER
+    VOTE_NO,ITEM_NO, ITEM_NAME, VOTE_ORDER
 ;
 -- 투표 모든 결과 테이블 삽입
-INSERT INTO
+INSERT ALL 
+INTO
     VOTE_HISTORY
 (
     VOTE_HISTORY_NO
@@ -219,13 +221,13 @@ INSERT INTO
 )
 VALUES
 (
-    SEQ_VOTE_HISTORY_NO.NEXTVAL
+    (SELECT GET_HISTORY_SEQ() FROM DUAL )
     ,3
     ,'보라색'
     ,1
     ,1
-);
-INSERT INTO
+)
+INTO
     VOTE_HISTORY
 (
     VOTE_HISTORY_NO
@@ -236,13 +238,13 @@ INSERT INTO
 )
 VALUES
 (
-    SEQ_VOTE_HISTORY_NO.NEXTVAL
+    (SELECT GET_HISTORY_SEQ() FROM DUAL )
     ,3
     ,'파란색'
     ,3
     ,2
-);
-INSERT INTO
+)
+INTO
     VOTE_HISTORY
 (
     VOTE_HISTORY_NO
@@ -253,12 +255,14 @@ INSERT INTO
 )
 VALUES
 (
-    SEQ_VOTE_HISTORY_NO.NEXTVAL
+    (SELECT GET_HISTORY_SEQ() FROM DUAL )
     ,3
     ,'노란색'
     ,2
     ,3
-);
+)
+SELECT * FROM DUAL
+;
 ----------------------------------------------- voteCheck // 투표 조회
 SELECT 
     ITEM_NAME
@@ -317,7 +321,7 @@ ON
 ORDER BY 
     VOTE_NO DESC
 ;
-SELECT * FROM VOTE_BOARD;
+
 --------------------------------------detail // 관리자 게시글 상세 조회
 SELECT 
     VOTE_NO
@@ -335,6 +339,8 @@ JOIN
     MANAGER M
 ON 
     M.MANAGER_NO = V.MANAGER_NO
+WHERE 
+    VOTE_NO = 1
 ORDER BY 
     VOTE_NO DESC
 ;
@@ -400,6 +406,8 @@ JOIN
     VOTE_BOARD B
 ON
     H.VOTE_NO = B.VOTE_NO
+WHERE
+    H.VOTE_NO = 3
 ;
 ----------------------------------------------- history // 관리자 투표 전체 결과 이력 조회  
 SELECT 
@@ -427,6 +435,7 @@ SELECT
     C.COMPLAINT_NO
     ,MEMBER_NO
     ,TITLE
+    
     ,ENROLL_DATE
     ,STATUS
     ,IMG_NO
@@ -467,7 +476,8 @@ VALUES
 )
 ;
 -- 민원에 첨부된 사진 삽입
-INSERT INTO
+INSERT ALL
+INTO
     COMPLAINT_IMG
 (
     IMG_NO
@@ -478,13 +488,32 @@ INSERT INTO
 )
 VALUES
 (
-    SEQ_COMPLAINT_IMG_NO.NEXTVAL
-    ,6
+    (SELECT GET_COMPLAINT_IMG_SEQ() FROM DUAL )
+    ,SEQ_COMPLAINT_NO.CURRVAL
     ,'complaint_img_' || TO_CHAR(SYSDATE,'YYYYMMDDHH24miSS')
     ,'resources/uplode/'
     ,'img06'
 )
+INTO
+    COMPLAINT_IMG
+(
+    IMG_NO
+    ,COMPLAINT_NO
+    ,IMG_NAME
+    ,PATH
+    ,ORIGIN_NAME
+)
+VALUES
+(
+    (SELECT GET_COMPLAINT_IMG_SEQ() FROM DUAL )
+    ,SEQ_COMPLAINT_NO.CURRVAL
+    ,'complaint_img_' || TO_CHAR(SYSDATE,'YYYYMMDDHH24miSS')
+    ,'resources/uplode/'
+    ,'img07'
+)
+SELECT * FROM DUAL
 ;
+
 
 -------------------------------------mySumitDetail // 내 민원 상세 조회
 SELECT 
@@ -501,16 +530,16 @@ SELECT
     ,PATH
 FROM
     COMPLAINT C
-JOIN
+LEFT JOIN
     COMPLAINT_IMG I
 ON
     C.COMPLAINT_NO = I.COMPLAINT_NO
 WHERE
     DEL_YN = 'N'
 AND
-    C.MEMBER_NO = 1
+    C.MEMBER_NO = 6
 AND
-    C.COMPLAINT_NO = 1
+    C.COMPLAINT_NO = 6
 ;
 --------------------------------------list // 전체 게시글 조회
 SELECT 
