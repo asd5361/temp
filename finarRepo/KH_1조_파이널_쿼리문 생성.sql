@@ -589,9 +589,7 @@ JOIN
 ON
     C.COMPLAINT_NO = I.COMPLAINT_NO
 WHERE
-    C.MEMBER_NO = 1
-AND
-    C.COMPLAINT_NO = 1
+    C.COMPLAINT_NO = 6
 ;
 -- clear // 민원 해결 글 작성
 UPDATE 
