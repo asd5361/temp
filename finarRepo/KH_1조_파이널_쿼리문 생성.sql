@@ -57,6 +57,39 @@ FROM
 WHERE 
     VOTE_NO = 1
 ;
+
+--------------+++-------위에 두 쿼리 합친 버전 게시글 상세 조회 (+항목)-------+++---------------
+SELECT 
+    V.VOTE_NO
+    ,V.MANAGER_NO
+    ,TITLE
+    ,CONTENT
+    ,ENROLL_DATE
+    ,MODIFY_DATE
+    ,DEADLINE_DATE
+    ,ACCEPT_YN
+    ,ID
+    ,ITEM_NO
+    ,ITEM_NAME
+    ,VOTE_ORDER
+    ,VOTE_TYPE
+FROM 
+    VOTE_BOARD V
+JOIN
+    MANAGER M
+ON 
+    M.MANAGER_NO = V.MANAGER_NO
+JOIN
+    VOTE_ITEM I
+ON
+    V.VOTE_NO = I.VOTE_NO
+WHERE 
+    DEL_YN = 'N' 
+AND
+    V.VOTE_NO = 1
+ORDER BY 
+    V.VOTE_NO DESC
+;
 --------------------------insert //게시글 작성 + 투표 항목 선정
 
 INSERT
