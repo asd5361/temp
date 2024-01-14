@@ -90,6 +90,17 @@ AND
 ORDER BY 
     V.VOTE_NO DESC
 ;
+
+-- 로그인 회원 투표 여부 조회
+SELECT 
+    COUNT(*) AS COUNT
+FROM 
+    VOTE_REPLY 
+WHERE 
+    PRTC_NO = 6
+AND 
+    VOTE_NO = 1
+;
 --------------------------insert //게시글 작성 + 투표 항목 선정
 
 INSERT
