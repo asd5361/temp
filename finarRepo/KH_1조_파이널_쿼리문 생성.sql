@@ -101,6 +101,14 @@ WHERE
 AND 
     VOTE_NO = 1
 ;
+
+-- 조회수 증가
+UPDATE
+    VOTE_BOARD
+SET 
+    HIT = HIT + 1
+WHERE VOTE_NO = 5
+;
 --------------------------insert //게시글 작성 + 투표 항목 선정
 
 INSERT
@@ -206,8 +214,6 @@ ON
     M.MANAGER_NO = V.MANAGER_NO
 WHERE
     DEL_YN = 'N'
-AND
-    ID = 'admin'
 AND
     TITLE like '%투표%'
 AND 
