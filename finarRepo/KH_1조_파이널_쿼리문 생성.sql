@@ -9,6 +9,7 @@ SELECT
     ,TITLE
     ,CONTENT
     ,ID
+    ,HIT
 FROM 
     VOTE_BOARD V
 JOIN
@@ -32,6 +33,7 @@ SELECT
     ,DEADLINE_DATE
     ,ACCEPT_YN
     ,ID
+    ,HIT
 FROM 
     VOTE_BOARD V
 JOIN
