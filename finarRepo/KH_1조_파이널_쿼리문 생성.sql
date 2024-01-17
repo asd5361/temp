@@ -90,7 +90,7 @@ WHERE
 AND
     V.VOTE_NO = 1
 ORDER BY 
-    V.VOTE_NO DESC
+    i.ITEM_NO
 ;
 
 -- 로그인 회원 투표 여부 조회
@@ -376,7 +376,7 @@ ORDER BY
 
 --------------------------------------detail // 관리자 게시글 상세 조회
 SELECT 
-    VOTE_NO
+    V.VOTE_NO
     ,V.MANAGER_NO
     ,TITLE
     ,CONTENT
@@ -385,27 +385,24 @@ SELECT
     ,DEADLINE_DATE
     ,ACCEPT_YN
     ,ID
+    ,ITEM_NO
+    ,ITEM_NAME
+    ,VOTE_ORDER
+    ,VOTE_TYPE
 FROM 
     VOTE_BOARD V
 JOIN
     MANAGER M
 ON 
     M.MANAGER_NO = V.MANAGER_NO
+JOIN
+    VOTE_ITEM I
+ON
+    V.VOTE_NO = I.VOTE_NO
 WHERE 
-    VOTE_NO = 1
+    V.VOTE_NO = 1
 ORDER BY 
-    VOTE_NO DESC
-;
-SELECT 
-    ITEM_NO
-    ,VOTE_NO
-    ,ITEM_NAME
-    ,VOTE_ORDER
-    ,VOTE_TYPE
-FROM    
-    VOTE_ITEM
-WHERE 
-    VOTE_NO = 1
+    I.ITEM_NO
 ;
 ------------------------------------------select // 관리자 게시글 검색
 SELECT 
