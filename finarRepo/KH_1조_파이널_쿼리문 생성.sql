@@ -121,15 +121,19 @@ VOTE_BOARD
     ,MANAGER_NO
     ,TITLE
     ,CONTENT
+    ,DEADLINE_DATE
+    ,ACCEPT_YN
 )
 VALUES 
 (
     SEQ_VOTE_BOARD_NO.NEXTVAL
-    ,11
+    ,9
     ,'11번 테스트 전자 투표'
     ,'테스트용 투표 진행합니다.'
+    ,'2024-12-11 15:30:07'
+    ,'Y'
 );
-    
+
 INSERT All
 INTO
 VOTE_ITEM
